@@ -1,0 +1,74 @@
+Recall that a rotation of a unit circle can be parametrized either (i)
+by its angle $\varphi$,
+or (ii) by a pair of Cartesian coordinates $(x,y)$ such that $x^2+y^2=1$,
+or (iii) by a unit complex number $z$, noting that 
+$z = x + y \cdot i = \exp(i \varphi) = \cos(\varphi) + \sin(\varphi) \cdot i$
+($i^2=-1$),
+thus $\cos(\varphi) = (z+z^{-1})/2$, $\sin(\varphi) = (z-z^{-1})/(2i)$.
+Fixing a reference point $P_0$ one can identify a rotation $\rho$
+with a point $\rho(P_0)$.
+Thus the composition of rotations as well as the action of a rotation on a point
+are described by multiplication of complex numbers.
+In particular the rotation by a fixed angle is linear transformatin
+in either complex coordinate $z$ or in the real coordinates $x,y$.
+Also, the sequence of points $\dots,P_{k-1},P_k,P_{k+1},\dots$
+is obtained by consecutive fixed rotations $ρ$
+if and only if the corresponding sequence of complex numbers
+is a geometric progression:
+\[ P_i^2 = P_{i-1} \cdot P_{i+1} \]
+For any bivariate polynomial of degree less than $d$,
+the result of the substitution $(x,y) \mapsto (\cos(\varphi),\sin(\varphi))$
+can be uniquely written as a linear combination of Laurent monomials $z^k$ with $|k|<d$. We will call
+such elements trigonometric (or Laurent) polynomials of degree less than $d$.
+An example of a function which is not a trigonometric polynomial
+is given by the cotangent:
+
+
+\[\cot(\varphi) := \frac{\cos(\varphi)}{\sin(\varphi)} 
+= i \frac{z^2+1}{z^2-1} = i \left(1+\frac{1}{1-z}-\frac{1}{1+z}\right)\]
+
+Let $ζ$ (resp. $z$) be a complex number associated with a rotation (resp. an initial point),
+and $f$ be a function on a circle.
+
+The $N$-step average from starting point $z_0$ for a function $f$ is defined as:
+
+\[ \int_{ζ,N,z_0} f := \frac{1}{N} \sum_{k=0}^{N-1} f(ζ^k \cdot z_0), \]
+if $ζ^N = 1$ we will simply write $\int_{N,z}$.
+
+Note that if $f(w) = w^M$ then $f(ζ^k \cdot z_0) = f(ζ^k) \cdot f(z_0)$,
+so $\int_{ζ,N,z_0} f = f(z_0) \times \int_{ζ,N,1} f$,
+moreover the second factor 
+\[ 
+\int_{ζ,N,1} z^M 
+= \frac{1}{N} \sum_{k=0}^{N-1} ζ^{kM} 
+= \frac{1}{N} \frac{1-ζ^{NM}}{1-ζ^M} 
+\]
+equals $1$ if $ζ^M=1$, 
+and otherwise equals to $\frac{1}{N} \frac{1-ζ^{NM}}{1-ζ^M}$. In particular it is zero if $ζ^N=1$.
+
+
+
+This implies that if $f$ is a trigonometric polynomial of degree $d$,
+then for any $N>d$ and any starting point $z_0$
+all $N$-periodic time averages of $f$ yield the same value.
+This value equals the zeroth Fourier coefficient (in front of $z^0$),
+which is the space average.
+
+In what follows we apply this argument to our three main results. In the first two, the application is straightforward. In the third case (invariant sum of cotangents), we proceed through the following steps to obtain a trigonometric polynomial:
+
+\begin{enumerate}
+    \item The cotangent is equal to the scalar product divided by area.
+\item Since area is constant (multiplied by the affine Jacobian), the cotangent is proportional to the scalar product.
+
+\item Scalar product (before or after dilation) is a quadratic polynomial in coordinates
+of three points (the center one is a vertex).
+
+\item The coordinates of these three points $P_{i-1},P_i,P_{i+1}$
+are linear in the coordinates of the center point $P_i$, % already proved above
+%; see \cref{eq:scaled-dynamics}.
+\item Therefore, the cotangent is a quadratic function and for $N>2$ its time average is independent
+of the starting point and equals to space average.
+\end{enumerate}
+
+
+

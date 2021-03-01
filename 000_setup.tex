@@ -1,0 +1,112 @@
+\usepackage{graphics}
+\usepackage{thmtools}
+\usepackage{wasysym}
+%\usepackage{arxiv}
+%\usepackage{enseign}
+
+\usepackage{iftex}                      % check which engine is compiling this file
+\iftutex                                % xelatex or lualatex specific first
+ % \usepackage{fontspec}                % font selection in xelatex/lualatex
+ \defaultfontfeatures {Ligatures=TeX}
+ \usepackage{unicode-math}              % amssymb,amsmath eq, to show $θ$ as θ
+ \unimathsetup{math-style=TeX}
+ \setmathfont{Stix Two Math}
+ \ifLuaTeX
+  %  \usepackage{luatex85}              % compatibility of luatex with xy
+   \usepackage{lualatex-math}
+ \fi
+\else                                   % 8bit (e.g. pdflatex) specific
+\usepackage[T1]{fontenc}                % use 8-bit T1 fonts
+%\usepackage[utf8]{inputenc}       % allow utf-8 input, for texlive-2016 and older
+\fi
+\usepackage{alphabeta}              % in LuaLaTeX use {unicode-math}
+
+\usepackage{amsthm}
+\usepackage{amsbsy,amsmath,amssymb,amscd,amsfonts}
+\usepackage[pagebackref=true]{hyperref}
+\usepackage[nameinlink,capitalize,noabbrev]{cleveref}
+%\usepackage{hyperref}
+%\usepackage{url}            % simple URL typesetting
+%\usepackage{booktabs}       % professional-quality tables
+%\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+%\usepackage{microtype}      % microtypography
+
+\usepackage{graphicx,float,latexsym,color}
+%\usepackage{refcheck}
+%\usepackage{mathspec}
+\usepackage[font={scriptsize,it}]{caption}
+\usepackage{subcaption}
+%\let\proof\relax
+%\let\endproof\relax
+
+\usepackage{makecell}
+
+% usar \defcommand em vez de \newcommand ou \renewcommand
+% funciona como \def em tex - vai definir, se ainda não definida,
+% se já definida, vai redefinir
+\makeatletter\def\defcommand{\@ifstar\defcommand@S\defcommand@N} \def\defcommand@S#1{\let#1\outer\renewcommand*#1} \def\defcommand@N#1{\let#1\outer\renewcommand#1} \makeatother
+
+\renewcommand{\arraystretch}{1.2}
+
+\usepackage[dvipsnames]{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{observation}{Observation}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{question}{Question}
+\hypersetup{
+    %bookmarks=true,         % show bookmarks bar?
+    %unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of 
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=OliveGreen,          % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,        % color of links to bibliography
+    filecolor=black,      % color of file links
+    urlcolor=red           % color of external links
+}
+
+\usepackage{lineno}
+\def\linenumberfont{\normalfont\small\sffamily}
+%a4: 210 x 297
+%\textwidth=125mm
+%\textheight=195mm
+\arraycolsep=2pt
+\captionsetup{width=120mm}
+
+ \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+ 
+\usepackage{comment}
+\usepackage{microtype}
+\usepackage{footnote}
+%\usepackage{tablefootnote}
+%\usepackage{longtable}
+
+%\usepackage{night}
+
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\T}{\mathcal{T}}
+%\newcommand{\C}{\mathcal{C}}
+\defcommand{\C}{\mathcal{C}}
+\newcommand{\F}{\mathcal{F}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\D}{\mathbb{D}}
+\renewcommand{\T}{\mathbb{T}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cp}{\mathbb{C}}
+\newcommand{\ol}{\overline}
+\renewcommand{\l}{\lambda}
+\newcommand{\X}{\mathcal{X}}
+
+\newcommand{\torp}[2]{\texorpdfstring{#1}{#2}}
+\newcommand{\ab}{_{\alpha,\beta}}

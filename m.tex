@@ -1,0 +1,990 @@
+% arara: lualatex
+% arara: lualatex
+\RequirePackage[l2tabu,orthodox]{nag}   % nag about obsolete LaTeX
+\documentclass[12pt]{article}
+%\usepackage{uni8}
+\usepackage{geometry}
+%\geometry{paperwidth=441pt, paperheight=666pt}
+\usepackage{iftex}                      % to see which engine is compiling this file
+\iftutex
+ \usepackage{fontspec}                  % font selection in xelatex/lualatex
+ \defaultfontfeatures{Ligatures=TeX}
+ %\setmonofont{inconsolata}
+ \setmainfont{TeX Gyre Termes}
+ \usepackage{unicode-math}             % !\sigma doesn't show!  amssymb,amsmath equiv.
+ \setmathfont{Stix Two Math}
+ \setmonofont{Inconsolata}
+ %\usepackage{polyglossia}
+ %\setdefaultlanguage{english}
+ \ifLuaTeX
+ %  \usepackage{luatex85}                % <= luatex backward compatibility
+   \usepackage{lualatex-math}
+ \fi
+\else
+ \usepackage[utf8]{inputenc}
+ \usepackage[T1,T2A]{fontenc}
+ \usepackage{alphabeta}
+ \usepackage{amssymb}
+ \usepackage{amsmath}
+ %\usepackage{newtxtext,newtxmath}
+\fi
+\usepackage{amsthm}
+\usepackage{csquotes}
+%\usepackage[french,portuges,main=english]{babel}
+\usepackage[english]{babel}
+\usepackage[unicode]{hyperref}
+\usepackage[dvipsnames]{xcolor}
+%\hypersetup{backref}
+\hypersetup{colorlinks, bookmarksopen=false} %,bookmarksnumbered,pdfstartview=FitW}
+\hypersetup{pdfstartview=}
+\hypersetup{
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\usepackage{night}
+\usepackage[mark]{gitinfo2}
+\usepackage{cleveref}                    % load _after_ hyperref. Usage: "in \Cref{t:1}"
+\usepackage[maxbibnames=99,safeinputenc]{biblatex}
+
+
+\numberwithin{equation}{section}
+
+\newtheorem{dummy}{dummy}[section]           % s: \label{s:sectionlabel}
+
+\newtheorem{corollary}[dummy]{Corollary}     % c: \label{c:primer}
+\newtheorem{definition}[dummy]{Definition}   % d: \label{d:imya}
+\newtheorem{example}[dummy]{Example}         % e:
+\newtheorem{lemma}[dummy]{Lemma}             % l:
+\newtheorem{proposition}[dummy]{Proposition} % p:
+\newtheorem{remark}[dummy]{Remark}           % r:
+\newtheorem{theorem}[dummy]{Theorem}         % t:
+% \(Theorem\|Corollary\|Lemma\|Proposition\|Remark\|Example\|Conjecture\|Definition\)
+%\newtheorem{conjecture}[dummy]{Conjecture}
+
+\newcommand\A{\mathbf{A}}                    % [A]ffine space. Almost not used.
+\renewcommand\C{\mathbf{C}}                  % [C]omplex numbers
+\newcommand\F{\mathbf{F}}                    % [F]inite [F]ield
+\renewcommand\P{\mathbf{P}}                  % [P]rojective spaces
+\newcommand\Q{\mathbf{Q}}                    % Rational numbers
+\newcommand\R{\mathbf{R}}                    % [R]eal numbers
+\newcommand\N{\mathbf{N}}                    % [N]atural numbers
+\newcommand\T{\mathbf{T}}                    % [T]orus - a circle
+\newcommand\Z{\mathbf{Z}}                    % Integer [Z]ahlen
+\renewcommand\k{\mathbf{k}}                    % Some base field (R,C,Q,F_q,etc)
+\DeclareMathOperator\Jac{Jac}		     % Jacobian
+\DeclareMathOperator\Pic{Pic}                % a.k.a. Picard variety
+\providecommand {\arxiv}  [1] {\href{https://arxiv.org/abs/#1}{\texttt{arXiv:#1}}}
+\addbibresource{m.bib}
+\begin{document}
+%\ttfamily
+\begin{abstract}
+\Cref{sec:concentric,sec:cotangent} make a proof of conservacy of
+the sum of cotangents, so these are to be included in the paper.
+\Cref{sec:harmonic} gives three equivalent re-formulations of conservacy
+for the periodic cases.
+The rest is bla-bla or some explanations.
+\end{abstract}
+%\maketitle
+\tableofcontents 
+
+\section{Poncelet Geometry}
+
+Define configuration space $X$ associated with a pair of conics.
+Discuss general case when it is a smooth genus one curve
+and degenerate cases, where the curve becomes singular
+or even reducible (like in the case of two concentric circles).
+Discuss degeneration of the group law.
+
+Discuss moduli space of configurations.
+
+\section{Poncelet Dynamics}
+
+Define two involutions and their composition --- Poncelet map $T : X$.
+Recall Poncelet porism.
+Explain periodic/aperiodic dichotomy in terms of torsion/non-torsion in the group.
+In the periodic case $\frac{α}{2π} = \frac{w}{N} \in\ (-\frac12,\frac12)$ where $N\in\N$ is the period and $w\in\Z$ is the winding number.
+Discuss torsion configurations as subset in moduli.
+Explain that both torsion and non-torsion are dense.
+
+
+\section{Rigidity lemma}
+
+In one of their proofs
+\cite{AST} use Liouville's theorem from complex analysis:
+a bounded holomorphic entire function is constant.
+A weaker analogue of this in algebraic geometry says that any regular function
+on a projective line is constant, or more generally,
+any regular map from a connected projective variety to an affine variety is constant.
+Based on this one proves a Rigidity Lemma (cite e.g. Mumford):
+for any regular map $f: B\times X\to Y$ with $X$ proper and $B$ connected,
+if $f(b_0,X)$ is constant for one value $b_0\in B$ then $f(b,x) = g(b)$ for some $g: B\to Y$.
+
+Explain non-example, and what have to be checked in order to apply it.
+
+\section{Galois action}
+Particular values of the average for $α\in2π\Q$ give various interesting formulae in the (neighbours)
+of the cyclotomic field $\Q(ζ_N)$.
+To expand my e-mail.
+
+\section{Ergodic theorem}
+
+We refer to \cite{Moore2015} for a brief history of ergodic hypothesis
+and the ergodic theorems
+proved/refined in 1931--1933
+by John von Neumann \cite{Neumann1932},
+George Birkhoff \cite{Birkhoff1931a,Birkhoff1931b}
+and Khinchin.
+
+Ergodic theorem says that for ergodic maps $T: X$ on measurable space $X$
+and nice functions $f: X\to \R$ the averages over time equal to the averages over space $X$.
+
+When $α$ does not belong to $2π\Q$ the translation $T_α (β) := β+α \mod 2π$ acts on the circle ergodically,
+so we can apply it to deduce that time-average cotangent equals to the space average that we computed in \Cref{space-average}.
+
+For $α\in2π\Q$ (period cases) one \emph{can not} just deduce the same formula by limiting 
+--- the time-averages are well-defined \emph{but a priori not uniformly continuous}.
+A notion of strong ergodicity serves to provide a uniform convergence, but I cannot see how to apply it in our case.
+Various counter-examples show it might be not such a simple problem.
+
+\section{Periodic averages and time averages}
+
+Let $f$ be a function on $X$ with values in an abelian group $A$.
+
+If $T: X$ is an endomorphism of period $N$ (i.e. $T^{\circ N} := T\circ T\circ\dots\circ T = Id_X$) consider
+\[ \sum_{k=1}^N f(T^{\circ k} x) \]
+This is pretty well defined in many contexts, but for application of the ergodic theorem it is more convenient
+to consider the case where group $A$ is uniquely $N$-divisible, e.g. a field of characteristic $0$ (or more than $N$).
+Then periodic average is obtained by division of the sum by $N$
+\[ \frac{1}{N} \sum_{k=1}^N f(T^{\circ k} x) \]
+
+Generalization
+\begin{definition}
+If $T$ not necessarily has period $N$ one can nevertheless consider a sequence
+\[ \frac{1}{n} \sum_{k=0}^{n-1} f(T^{\circ k} x) \]
+and look for its limit, the so-called time average
+\[ \bar{f}(x) := \lim_{n\to\infty} \frac{1}{n} \sum_{k=0}^{n-1} f(T^{\circ k} x) \]
+\end{definition}
+
+\begin{proposition}
+If $T$ is $N$-periodic, 
+then for every $x$ for which the periodic average of $f$ is defined,
+the time-average limit exists and equals to the periodic average.
+\end{proposition}
+
+\section{Harmonic analysis}
+\label{sec:harmonic}
+
+A square-integrable function $f$ on a circle $\T = \R/\Z$.
+can be represented as a periodic function on $\R$ 
+\[ f(x+1)=f(x) \]
+with Fourier expansion
+\[ f(x) = \sum_{n\in\Z}   a(n)   q^n \]
+where $n$ runs over integers,
+\[ q := \exp(2πi\cdot x) \]
+
+and $a(n)$ are Fourier coefficients (complex numbers), 
+\[ a(-n) = \int_{x=0}^1 f(x) q^n dx \]
+
+For a fixed $y\in \T$
+consider the operator $U$
+
+\[ (Uf) (x) = f(x+y) \]
+
+Define
+\[ g_N := (1+U+U^2+...+U^{N-1}) f \]
+explicitly
+\[ g_N(x) = f(x) + f(x+y) + f(x+2y) + ... + f(x + (N-1)y) \]
+
+By geometric progression
+\[ (1-U^N)=  (1+U+U^2+...+U^{N-1}) (1-U) \]
+
+Assume $U^N=1$  i.e. $y=\frac{w}{N}$  for an integer $w \in (-N/2,N/2]$.
+Moreover assume $U^M \neq 1$ for $M<N$, i.e. $w$ is coprime to $N$.
+Under this assumptions
+\[  ζ := \exp(2πi\cdot y) \]
+is the primitive N-th root of unity, 
+so $(1-ζ^n) = 0$ iff $n$ is divisible by $N$ (I will shorten this to $n\in(N)$).
+
+\begin{proposition}
+The following are equivalent
+\begin{enumerate}
+\item $g_N = 0$
+\item exists $h$ such that $f(x) = h(x) - h(x+y)$
+\item $a(n)=0$ for all $n$ divisible by $N$
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+$(2)\implies(1)$:   
+If $h$ exists, then $g = (1+U+U^2+\dots+U^{N-1}) (1-U) h =  (1-U^N) h = 0 h = 0$,
+so the image of the operator $(1-U)$ is inside 
+the kernel of the operator $(1+U+U^2+\dots+U^{N-1})$.
+
+More generally, the operator $U$ is diagonal in the orthonormal base $\{q^n\}_{n\in\Z}$.
+It multiplies $n$-th Fourier coefficient by $ζ^n$.
+For any polynomial $P$ the operator $P(U)$ multiplies $n$-th coefficient by $P(ζ^n)$.
+Thus the image of $(1-U)$ consists of functions 
+$\sum_{n\in\Z} b(n) q^n$  with $b(n)=0$ for $n\in(N)$.
+Similarly, the kernel of the operator $(1+U+U^2+\dots+U^{N-1})$
+consists of the functions $\sum_{n\in\Z} c(n) q^n$
+such that for any $n$
+\[ c(n) \cdot  (1 + ζ^n + ζ^{2n} + \dots + ζ^{(N-1)n}) = 0 \]
+use that $(1 + ζ^n + ζ^{2n} + \dots + ζ^{(N-1)n}) \neq 0 \iff  n\in(N)$:
+if $n\in(N)$ then $ζ^{kn}=1$ for all $k\in\Z$, so the sum equals $N$,
+if $n$ is not in $(N)$ then $(1-ζ^n)$ is invertible
+and $(1-ζ^n)((1 + ζ^n + ζ^{2n} + \dots + ζ^{(N-1)n}) = 1-ζ^{Nn} = 0$
+implies $1 + ζ^n + ζ^{2n} + \dots + ζ^{(N-1)n} = 0$.
+So the kernel of the operator $1+U+\dots+U^{N-1}$ 
+is made of the sums $\sum_{n\in\Z} c(n) q^n$ 
+with $c(n)=0$ for $n\in(N)$,
+the same as the image of the operator $(1-U)$.
+\end{proof}
+
+It suggests that if there is an experimentally conserved quantity $F$ 
+then it makes sense to see if $F'$ (the derivative) 
+is representable as a difference $h(x) - h(Tx)$, 
+where $T$ is the Poncelet map.
+Here we use derivative just to ensure that the integral of $f$ over circle is zero,
+so $g_N=0$ but $G_N$ is a constant ($N \int F dx$).
+
+This suggests that for every conserved quantity we need to take a closer look into its Fourier expansion in terms of the natural parameter.
+
+The natural parameter $β$ for 
+(the universal cover of) 
+(the elliptic double cover of) 
+the Poncelet conic is defined by the property
+\[ β(T Q) - β(Q) \]
+being constant (independent of $Q$).
+
+\subsection{Hilbert transform on the circle}
+Cotangent is a kernel for the Hilbert transform on the circle.
+Also its expansion into the infinite sum over poles
+plays the fundamental role in establishing modularity
+of Eisenstein series, hence can be thought as a fundation for modular forms.
+
+\section{Ronaldo formulae}
+
+\begin{proposition}\label{prop:somacotan}
+\[ \frac{1}{n} Cot_n =
+\frac{1}{n} \sum_{k=1}^n \cot_k =  - \cot \left({\frac{2π}{n}}\right) \cdot \frac {\left( {a}^{2}+{b}^{2} \right) }{2ab}
+\] 
+\end{proposition}
+
+
+\begin{proposition}\label{prop:somaL2}
+\[ \frac{1}{n} L_n = \frac{1}{n} \sum_{k=1}^n L_k^2 = \left( 1-\cos \left(  {\frac {2π}{n}} \right)  \right)  \left( 
+{a}^{2}+{b}^{2} \right) 
+\]
+\end{proposition}
+
+\begin{proposition}\label{prop:areaN}
+\[\frac{1}{n} A_n= \sin \left( {\frac{2π}{n}} \right) \frac{ab}{2}\]
+\end{proposition}
+
+\begin{corollary}
+\[ 4\left(1-\cos\left(\frac{2π}{n}\right) \right) \frac{A_n}{n} \frac{Cot_n}{n}  +  \cos\left(\frac{2π}{n}\right) \frac{L_n}{n} = 0\]
+\end{corollary}
+\begin{proposition}\label{prop:somacotan2}
+
+Let \[ c_n=\cos\left(\frac{\pi}{n}\right), \;\;\;\;\;  s_n=\sin\left(\frac{\pi}{n}\right). \]
+Then,
+\begin{align*}
+Cot2_n=\sum_{k=1}^n \cot_k^2 = &\frac {n \left(  \left( {a}^{2}+{b}^{2} \right) ^{2} (c_n^{
+4}-  c_n^{2}) +\frac{3}{8}\,{a}^{4}+\frac{1}{4}
+\,{a}^{2}{b}^{2}+\frac{3}{8}\,{b}^{4} \right) }{4{a}^{2}{b}^{2} s_n^{2}
+ c_n^{2}}\\
+ =& -\frac{((a^2+b^2)^2\cos(4\pi/n)+2 (a^4+ b^4)) n}{    4 (\cos(4\pi/n)-1)  a^2 b^2)}\\
+ =&  \frac{\left( 3\,a^{4}+2\,a^{2}b^{2}+3\,b^{4}\right) Cot_n^2}{2n\left( a^{2}+b^{2} \right)^{2}}+ \frac{
+ \left(a^2-b^2 \right)^{2}   n}{8a^{2}b^{2}}
+\end{align*} 
+\end{proposition}
+
+\[ \lim_{n\to\infty}\frac{Cot_n}{n^2}=-\frac{ a^2+b^2}{4\pi ab},\;\;\;\lim_{n\to\infty}\frac{Cot2_n}{n^3}= \frac{ a^4+2 a^2 b^2 +3 b^4}{ 32\pi^2 a^2b^2   } \]
+
+
+Generalization: 
+replace the rational angle $\frac{2π}{n}$ 
+by arbitrary angle $α$ 
+and the periodic averages 
+$\frac{Cot_n}{n}$, $\frac{A_n}{n}$, $\frac{L_n}{n}$ 
+by the respective time-averages.
+
+
+\section{Concentric case}
+\label{sec:concentric}
+
+Rotation by angle $α$ is given by
+\[ z\to z' = e^{i α} \cdot z \]
+Since $e^{i α} = \cos α + i \sin α$ for $z = x + i y$ and $z'=x'+iy'$ we have
+\[ x'+iy' = z' = e^{i α} \cdot z = (\cos α + i \sin α) (x + i y) = (x \cos α - y \sin α) + i (x \sin α + y \cos α) \] 
+or
+\begin{align*} x' &= (x \cos α - y \sin α)    &     y' &= (x \sin α + y \cos α) \end{align*}
+Also if $z = e^{i β}$ then $z' = e^{i (β+α)}$ and respectively $x'=\cos(β+α), y'=\sin(β+a)$.
+So explicitly we can write down coordinates for the next and the previous points using $\cos(-α)=\cos(α)$ and $\sin(-α)=-\sin(α)$.
+If $T (x_i,y_i) = (x_{i+1},y_{i+1})$a then
+\begin{align} 
+x_{i+1} &= (x_i \cos α - y_i \sin α)    &     y_{i+1} &= (x_i \sin α + y_i \cos α)  \\
+x_{i-1} &= (x_i \cos α + y_i \sin α)    &     y_{i-1} &= (-x_i \sin α + y_i \cos α)  
+\end{align}
+
+And if $X_i = a x_i$ then
+
+\begin{align} \label{scaled-dynamics} 
+X_{i+1} &= a(x_i \cos α - y_i \sin α)   &    y_{i+1} &= ( x_i \sin α + y_i \cos α)  \\
+X_i     &= a x_i                        &    y_i     &=                y_i          \\
+X_{i-1} &= a(x_i \cos α + y_i \sin α)   &    y_{i-1} &= (-x_i \sin α + y_i \cos α)  
+\end{align}
+
+\section{Cotangents}
+\label{sec:cotangent}
+
+Great simplification of cotangents.
+Cotangent of angle $ABC$ is a rational function of coordinates of the vertices.
+Explicitly, if $B=O:=(0,0)$ and $C=H:=(*,0)$, $A=(x,y)$ then
+\[ \cot = \frac{x}{y} \]
+If $C=(x_1,y_1)$ and $A=(x_3,y_3)$ consider the associated complex numbers 
+\begin{align*} 
+c &= x_1 + i y_1 & 
+a &= x_3 + i y_3
+\end{align*}
+Their ratio equals
+\[ d = \frac{c}{a} 
+ = \frac{x_1 + i y_1}{x_3 + i y_3} 
+ = \frac{(x_1 + i y_1)(x_3 - i y_3)}{(x_3 + i y_3)(x_3 - i y_3)} 
+ = \frac{(x_1 x_3 + y_1 y_3) + i (y_1 x_3 - y_3 x_1)}{x_3^2 + y_3^2}
+\]
+Angle $AOC$ is homothetic to angle $HOD$, hence
+\begin{equation} \label{cotangent}
+\cot = \frac{x_1 x_3 + y_1 y_3}{y_1 x_3 - y_3 x_1} 
+\end{equation}
+Formula for the cotangent of abstract triple is obtained by a shift, but it will be easier to do shift directly.
+\begin{equation*} 
+\cot((x_1,y_1),(x_2,y_2),(x_3,y_3)) = 
+\frac{(x_1-x_2) (x_3-x_2) + (y_1-y_2) (y_3-y_2)}{(y_1-y_2) (x_3-x_2) - (y_3-y_2) (x_1-x_2)}
+\end{equation*}
+
+
+Rewrite \Cref{scaled-dynamics} 
+\begin{align}
+X_+ - X &= a (x (\cos α - 1) - y \sin α)    &     y_+ - y &= ( x \sin α + y (\cos α - 1))  \\
+X_- - X &= a (x (\cos α - 1) + y \sin α)    &     y_- - y &= (-x \sin α + y (\cos α - 1))  
+\end{align}
+or in trigonometric form
+\begin{align}
+X_+ - X &= a (\cos(β+α)-\cos(β))    &     y_+ - y &= \sin(β+α)-\sin(β)  \\
+X_- - X &= a (\cos(β-α)-\cos(β))    &     y_- - y &= \sin(β-α)-\sin(β)  
+\end{align}
+
+
+and substitute into \Cref{cotangent}
+\begin{equation} \label{cot-a}
+\cot(x,y,a) = \frac{a x_- x_+ + a^{-1} y_- y_+}{y_- x_+ - y_+ x_-}
+\end{equation}
+so
+\begin{equation}
+\cot(x,y,a) = \cot(x,y,1) \cdot \frac{a x_- x_+ + a^{-1} y_- y_+}{x_- x_+ + y_- y_+}
+%  \cot(x,y,1) \frac{a (\cos(β+α)-\cos(β))(\cos(β-α)-\cos(β)) + a^{-1} (\sin(β+α)-\sin(β))(\sin(β-α)-\sin(β))}{...}
+\end{equation}
+
+Note that 
+\begin{align}
+x_- x_+ = (x (\cos α - 1) + y \sin α) (x (\cos α - 1) - y \sin α) &= x^2 (\cos α - 1)^2 - y^2 \sin^2 α \\
+y_- y_+ = \dots                                                   &= y^2 (\cos α - 1)^2 - x^2 \sin^2 α \\
+x_- x_+ + y_- y_+                                                 &= (\cos α - 1)^2 - \sin^2 α 
+\end{align}
+and since$x=\cosβ$,$y=\sinβ$, 
+$x^2 + y^2 = \cos^2 β + \sin^2 β = 1$ (the latter $R=1$ is just a choice for convention)
+and $\sin^2 α + \cos^2 α = 1$ we get
+\begin{multline}
+\int_{β=0}^{2π} \cot(β,a) dβ 
+= \frac{\int_{β=0}^{2π} dβ \cdot ( a (A \cos^2 β - B \sin^2 β) + a^{-1} (A \sin^2 β - B \cos^2 β))}{A-B} 
+\\
+= \left(\int_{β=0}^{2π}\cos^2 β dβ\right) \cdot \frac{aA-a^{-1}B}{A-B}
++ \left(\int_{β=0}^{2π}\sin^2 β dβ\right) \cdot \frac{a^{-1}A-a B}{A-B}
+\end{multline}
+where $A = (\cos α - 1)^2$ and $B = \sin^2 α$ are constant that don't depend on $β$.
+
+Taking into account
+\begin{align*} 
+\cos(β)&=\sin(β+π/2) &
+\sin^2 β + \cos^2 β &= 1
+\end{align*}
+one gets 
+\[ \int \sin^2 β = \int \cos^2 β = \frac12 \] 
+hence
+\begin{equation}
+\int_{β=0}^{2π} \frac{dβ}{2π}\cdot \frac{\cot(β,a)}{\cot(β,1)}
+= \frac12 \cdot \frac{aA-a^{-1}B}{A-B}
++ \frac12 \cdot \frac{a^{-1}A-a B}{A-B}
+= \frac{a+a^{-1}}2
+\end{equation}
+
+So average over space of $\cot(β,a)$ equals $\frac{a+a^{-1}}{2} \cdot \cot(β,1)$
+and $\cot(β,1)$ is easy to compute --- it does not depend on $β$ and equals $-\cot(α)$.
+
+\begin{equation} \label{space-average}
+\int_{β=0}^{2π} \frac{dβ}{2π}\cdot \cot(β;a,α) = \frac{a+a^{-1}}{2} \cdot \cot(α)
+\end{equation}
+
+Probably my trigonometry is awkward and the whole computation above can be written more nicely.
+
+Now just let us note that almost everywhere instead of
+
+\[    \frac{1}{2π} \int_0^{2π} (dβ)  \cdot \cos(β)^2 \]
+we can write
+\[    \frac{1}{N}  \sum_{k=0}^{N-1}  \cos\big(\frac{2πk}{N}\big)^2 \]
+
+Using
+\[      \cos(β) = \frac{\exp(iβ) + \exp(-iβ)}2 \]
+ we have
+\[      \cos(β)^2 = \frac12 + \frac14\cdot{(\exp(i\cdot2β) + \exp(-i\cdot2β))} \]
+
+%Em jeito similar, sin(β) = (exp(iβ) - exp(-ib))/(2i) e sin(β)^2 = 1/2 - (exp(i 2β) + exp(-i 2β))/4. [usando sin^2 = 1 - cos^2 esta linha não é necessária]
+
+Thus for $N>2$ we have
+
+\[ \sum_{k=0}^{N-1} \exp\big(2πi\cdot \frac{2k}{N}\big) 
+= \frac{1-\exp(2πi\cdot 2k)}{1-\exp(2πi\cdot\frac{2}{N})} 
+= \frac0{1-\exp(2πi\cdot\frac{2}{N})} = 0 \]
+
+%[ Se N=1 ou N=2 o denominador é 0, e na verdade a soma não é zero ]
+
+This implies that for $N>2$ periodic time average of $\cos^2(β)$ equals to spatial average,
+hence periodic time averages of $\cot(θ)$ are equal to their spatial time averages.
+
+\section{Sine, cosine, and other continuous functions}
+
+Angle $θ(β;α)$ depends continuously on $β,α$,
+so $θ$ is a continuous function with values in a circle $S^1 = \R/(2π)$.
+
+
+Hence the trigonometric functions $\sin(θ)$, $\cos(θ)$ also depend on $β$ continuously.
+More generally, for any continuous function $f : S^1 \mapsto \R$
+the composition $f(θ)$ is a continuous $\R$-valued function of $β$.
+
+So the ergodic theorem certainly applies to all those cases.
+In fact, ergodic theorem does not require continuity, only integrability.
+So one can also make some arbitrary cuts, 
+like choosing $θ$ to be in range $(-π,π]$, 
+but this just looks a little bit unnatural to me.
+Or one can consider Fourier expansions.
+ $\cos(2θ)$, $\sin(3θ)$, etc --- 
+all of them and all their linear combinations will be conserved.
+For infinite linear combinations 
+\[ \sum_n a(n) \cos(nθ) + b(n) \sin(nθ) \]
+some condition on integrability is necessary,
+ e.g. $\sum_n |a(n)|^2 + |b(n)|^2 < \infty$ 
+should be convergent.
+
+
+Let $x$ be a point on a boundary conic $D$ 
+and $ξ,ξ_2$ be two points on the caustic conic $C$,
+such that the lines $\overline{xξ}$, $\overline{xξ_2}$ are tangent to $C$.
+Consider $x,ξ,ξ_2$ as complex numbers (by Gauss--Argand identification of Euclidean plane with $\C$).
+The function
+\[     ν(x;ξ) := \frac{x-ξ_2}{x-ξ} \]
+is a $\C$-valued function on
+\[ X := \{(x,ξ) | x\in D,\,ξ\in C,\,\overline{xξ}\in T_ξ C\}, \]
+the elliptic curve of Poncelet pairs $(x,ξ)$.
+With $ξ_2$ being a function of $(x,ξ)$.
+
+A priori this function is only rational --- it has some poles.
+However if $X$ is smooth (i.e. conics $C$ and $D$ intersect in $4$ distinct points)
+then $ν$ gives a regular map $v: X\to \P^1$ from $X$ to the Riemann sphere $\C\P^1$.
+
+Also in the case when conics $C,D$ are real non-empty and $D$ lies inside the interior of $C$ (like in the pictures)
+function $ν(x,ξ)$ clearly takes finite values --- denominator vanishes only when $ξ=x$.
+This means $x=ξ$ is one the points of intersection of $C$ and $D$ --- 
+these are imaginary 
+(by Bezout theorem there are $4$ such points, taking into account multiplicities; 
+in smooth case all $4$ are distinct, 
+for two concentric circles 
+these are two complex-conjugate points 
+$(1:\pm\sqrt{-1}:0)$ 
+with multiplicity $2$ each).
+
+So restricted to the real locus $X(\R)$, the function $ν$ is in fact regular, continuous and non-vanishing.
+Moreover, on the real locus $ν$ does not take any real values --- $ν(x,ξ)$ is real 
+iff points $x,ξ,ξ_2$ are collinear, which implies $ξ_2=ξ=x$ being one of the four base-points.
+Thus $X(\R)$ has two connected components (left-movers and right-movers,  or counter-clock-wise vs clock-wise),
+with values on one component in upper half-plane and on another in lower half-plane of complex numbers.
+
+This corresponds to geometrically obvious fact 
+that for the left-movers angle $θ$ is in the range $(0,π)$ 
+and for the right-movers $θ$ is in the range $(-π,0)$:
+it is contained in the half-plane bounded by $T_x D$ that contains the conics.
+
+With these assumptions one can also unambiguously compute functions as $\frac{θ}2$,  $\sin(\frac{θ}2)$, etc.
+And other important observations - $0$ and $π$ are precisely the zeroes for $\sin(θ)$,
+so for left-movers $\sin(θ) > 0$ and also $\sin(θ/k) > 0$ for any $k\geq1$, in particular sine are non-zero.
+This makes $\cot(θ)$ and also $\cot(θ/2)$, well-defined and continuous. 
+Since the circle is compact they are also bounded, integrable, etc.
+
+\section{Questions}
+
+\begin{itemize}
+\item Rate of convergence?
+\item Experimental verification
+\item Falsifiability - for which functions f one cannot apply ET?
+\item For example - why cotangents don't work for general conics?
+\item Protocol for verification
+\end{itemize}
+
+
+A Non-Example. On hyperbola $xy=c$ the Poncelet map becomes $(x,y) \to (ax,y/a)$.
+\begin{enumerate}
+\item  For $|a|\neq1$ it acts on the hyperbola properly discontinuously.
+\item  The measure is infinite: $\int_{\R} d \log x = \infty$
+\item  \[ \frac{\sum_{n=-(N-1)}^{N-1} Cot_n}{2N-1} = Const(a) \cdot \frac{a^{2N}-a^{-2N}}{2N-1}\cdot (x^2+x^{-2}) \]
+This goes to infinity when $N\to\infty$ and $|a|\neq 1$
+\item Similarly the integral for average over space
+$\int_{\R} (x^2+x^{-2}) d \log x$
+ per se is divergent.
+\end{enumerate}
+
+
+\begin{example} [THIS IS WRONG]
+For (possibly intersecting transversally) two ellipses $C$,$D$ any polynomial of coordinates of $x,ξ$ is conserved.
+\end{example}
+
+
+\section{More remarks}
+
+Poncelet map is discrete, 
+but for each particular $C,D$
+it is obviously a finite time flow 
+for a holomorphic vector field $\frac{\partial}{\partial β}$ on $E$.
+Maybe consideration of (the derivation with respect to) 
+the respective vector field can give some simplifications.
+
+
+Speaking about derivations: also one can consider derivation 
+with respect to parameter along the moduli space (e.g. along $a$ and $b$).
+In cotangent case, the operator
+\[  f \to \frac{df}{d(\log a)} = \frac{a df}{(da)} \]
+applied twice leaves the quantities (sums and integrals) invariant.
+
+
+If we consider two different types of derivation,
+one along the elliptic curve (analogue of $\frac{\partial}{\partialβ}$)
+and another along the moduli space (analogue of $\frac{\partial}{\partial \log a}$)
+then there is a nice combination of these two, 
+the so-called \emph{heat equation}, 
+which I think could we be very useful here.
+Essentially it shall be something like 
+two derivations along the curve 
+is equivalent 
+to one derivation along the moduli.
+
+
+Probably all the relevant functions 
+lie in a respective space 
+of Jacobi modular forms.
+And these spaces are usually finitely generated.
+So I think all invariant quantities could be expressed in terms of a few basic ones.
+
+
+Griffiths and Harris in their two Poncelet-related works \cite{GH1977,GH1978}
+cite two papers of Cayley (1853 and 1861).
+
+They write that Jacobi in his solution (1828) 
+and Cayley uses slightly too complicated (for GH) 
+computations with elliptic functions, 
+which they replaced with a purely algebro-geometric proof.
+
+I just found, that Olivier Nash (Hitchin's student) has collected the relevant links and pdfs on his blog post:
+\cite{Nash2018,Cayley1853,Cayley1861}
+
+Relation to Painlevé VI. 
+In his paper \cite{Hitchin1992},
+dedicated to 60 years of Narasimhan and Seshadri,
+Hitchin used Poncelet N-gons to construct some algebraic solutions to Painlevé-VI.
+I used to know the construction, but forgot them, and just started to re-read the paper.
+
+But I also noticed that recently 
+Dragovic and Shramchenko in \cite{DS2019}
+
+generalized this from N-torsion to general elements 
+in the elliptic curve to construct 
+(non-algebraic) solutions of Schlesinger.
+Here are the slides of one of Dragovic talks with brief review:   
+\url{https://www.fields.utoronto.ca/programs/scientific/14-15/arnoldconf/slides/dragovic.pdf}
+
+
+And while composing this mail I noticed a paper \cite{IU2007}.
+They cite Hitchin but only in the introduction. 
+Looks interesting, but I do not yet see if there is a relation to our story.
+
+
+Also, Barth--?? writes that 
+the Poncelet theorem can be derived 
+from a 3d version 
+when one of the two quadrics is a cone.
+Then one can look for various quantities 
+in the 3-space and for their invariance.
+
+
+\section{Finite fields}
+
+Some experiments with rational functions of homogeneous coordinates of $x,ξ$ for finite fields.
+For any pair $C$,$D$ if $X$ is smooth, then $T$ is $N$-periodic for some $N$ automatically ---
+over finite field all points on elliptic curve are torsion.
+So it makes sense to consider analogous rational functions of coordinates and see whether
+their sums are constant (for points where they are defined), and if not - how they vary.
+
+\section{Conic loci of polygonal centers interpreted in terms of elliptic curves}
+
+Dan defines
+\begin{quote}
+pseudo-circumcenter (system I) and pseudo-orthocenter (system II)
+\end{quote}
+and experimentally verifies that these are constrained to some circles (conics).
+
+In this section I explain the most plausible origin of all those conics.
+
+{\bf Setting the stage.}
+
+For two given conics $C$ (the so-called caustic)
+and $D$ (the so-called boundary),
+the incidence space $Χ$ of pairs 
+or triples $(P,Q)$ (resp. $(P,L)$ or $(P,Q,L)$) defined by conditions
+\begin{enumerate}
+\item a point $P$ lies on a boundary conic $D$,
+\item a point $Q$ lies on a caustic conic $C$,
+\item a point $P$ and a line $L$ are incident, that is a point $P$ lies on a line $L$,
+\item a line $L$ is tangent to the caustic conic $C$ in the point $Q$:  $L = T_Q C$
+\footnote{So for a fixed non-degenerate caustic $C$,
+a point $Q$ is essentially the same thing as a line $L$.
+We implicitly identified a plane conic $C\subsetΠ$ with its dual $C^*\inΠ^*$.
+In my opinion, all the constructions are easier
+(and slightly more general for degenerate cases)
+when the two conics are chosen in the two dual planes.
+Εven better and more general is to choose two conics in two
+a priori unrelated planes
+$Π_1 = \P(V_1)$ and $Π_2=\P(V_2)$ and 
+then to choose a bilinear form on $V_1\times V_2$
+(possibly degenerate).
+A non-degenerate form (so-called perfect pairing) gives
+an identification of $V_2$ with $V_1^*$,
+but generally we have just a complete intersection of three hypersurfaces
+of bidegrees $(2,0)$, $(0,2)$ and $(1,1)$ in the Cartesian product $Π_1\times Π_2$
+of two projective planes.
+Hypersurface of bidegree $(2,0)$ is a cylinder over the conic $D$,
+hypersurface of bidegree $(0,2)$ is a cylinder over $C^*$
+and hypersurface of bidegree $(1,1)$ is a degeneration of the incidence variety.
+}
+\end{enumerate}
+
+is a curve $X$ of (arithmetic) genus one equipped with two natural forgetting maps
+(or projections)
+\begin{align} 
+π_C : X\to C  &	&	π_D : X\to D  \\
+π_C (P,Q) = Q &	&	π_D (P,Q) = P
+\end{align}
+
+Each of the two projections $π_C,π_D$ is a double cover.
+These are branched in four points,
+the points of intersection of $C$ and $D$,
+\footnote{For nested ellipses we don’t see them
+because they are two pairs of complex-conjugate points,
+but these ''imaginary'' intersection points are there and are important.}
+these four points are also known as the base locus.
+\footnote{For a pencil (two-dimensional linear system) 
+generated by conics $C$ and $D$.
+I don't (yet) use pencils in this section.}
+
+\begin{remark} The curve $X$ is smooth if and only if
+the conics $C,D$ are smooth \emph{and intersect transversally}, that is
+all four their intersection points are distinct.
+If some of them are infinitely close (conics are tangent somewhere)
+then the curve $X$ is singular.
+For example, pair $C,D$ is projectively equivalent (over $\R$)
+to a pair of two concentric circles
+iff they are tangent to each other in a pair complex conjugate points;
+for concentric circles, explicitly,
+these are the points $(1:\pm i:0)$ each with multiplicity $2$.
+\end{remark}
+
+The covering group of a double cover is generated by an involution,
+call these two involutions $ι_C$ and $ι_D$ respectively.
+The composition 
+\begin{equation} \label{def:tau}
+   τ = ι_D \circ ι_C
+\end{equation}
+of the two involutions is the translation considered by Poncelet.
+It is a translation on a genus one curve $Χ$ 
+by an element in its Jacobian $Ε := \Jac X = \Pic^0 X$
+which I denote by the same letter $τ$.
+
+\begin{remark} Curve $X$ per se is not a group (its real locus could be empty!),
+but it is a principal homogeneous space over the group $E$, the curve Jacobian.
+This means that there is an action map $E \times X \to X$
+such that for any point $x$ on $X$ the respective map $E = E \times \{x\} \to X$
+is an isomorphism. So non-canonically $E$ and $X$ are isomorphic,
+but only provided $X$ has at least one point.
+For example if we choose the boundary $D$ to be an ellipse inside the caustic $C$
+(yes, I really mean this - \emph{choose the boundary inside the caustic, not outside}),
+then the respective curve $X$ has no real points,
+however the Jacobian $E$ always have them.
+The whole dynamics is defined over the reals,
+but it is slightly hard to visualise dynamics on $X(\R)$ because it is an empty space $\emptyset$.
+On the other hand, $E(\R)$ is never empty,
+and the dynamics on $E(\R)$
+looks almost the same as in the standard case.
+\footnote{I imagine it is possible that $E(\R)$ has only one connected component,
+but I have not checked this.}
+\end{remark}
+
+Poncelet $N$-gons appear exactly when $τ$ is $N$-torsion (an element of order $N$).
+Then powers of $τ$ generate a finite cyclic subgroup $C_N = \Z/N$ of $E$.
+Natural actions of $E$ on itself and of $E$ on $X$ 
+can be restricted to this cyclic subgroup $C_n = \langleτ\rangle \subset E$.
+The quotients of $X$ and $E$ with respect to $\langleτ\rangle$ 
+are a genus one curve 
+\[ X' := X/\langleτ\rangle \]
+and its Jacobian 
+\[ E' := E/\langleτ\rangle = \Jac X'.\]
+
+{\bf Skip to here if bored by above.}
+
+To a pair of conics \emph{of period $N$}
+one associates an elliptic curve $E$
+\footnote{More precisely, a genus one curve $X$ and its Jacobian, an elliptic curve $E$, see above.}
+equipped with a free action of a finite cyclic group $\langleτ\rangle\simeq C_n \simeq \Z/N$
+with generator $τ$.
+Freeness implies that the quotient $E' := E/\langleτ\rangle$ is another elliptic curve,
+let us denote the respective quotient map as 
+\[ ε: Ε\to Ε', \]
+this map is also called $n$-isogeny.
+Two involutions $ι_C,\,ι_D$ (defined above)
+generate a dihedral group $D_n = \langleι_C,ι_D\rangle$
+in which $C_n= \langleτ\rangle$ sits as an index two subgroup and 
+the quotient-group is generated by either of the two involutions.
+\footnote{In planimetric terms $C_n$ is the group of rotations of a regular $n$-gon
+and $D_n$ is the group of its isometries ($n$ rotations and $n$ reflections),
+this is how $τ$ and $ι$s act in the canonical coordinate.}
+Let \[ι: E'\to Ε'\] denote the involution induced by a reflection,
+and \[π' : E' \to Ε'/ι =: B\] 
+be the respective quotient double cover.
+The curve $B$ has genus zero and $π'$ is a double covering branched over four points.
+Composition $π'\circε : E \to Β$ is the quotient with respect to the
+dihedral group $D_n = \langleι_C,ι_D\rangle$ and $B = E/\langleι_C,ι_D\rangle$.
+Note that the curves $C = X/ι_C$ and $D = X/ι_D$
+also come naturally equipped with degree $n$ maps to $B$.
+Maps $C\to Β$ and $D\to B$ are given by some rational functions of degree $n$
+in the respective uniformizers.
+
+The uniformizer on $B$ is the generator of the field of $D_n$-invariant
+rational functions on $E$.
+A part of the Galois lattice of $D_n: E$ is summarized as
+\begin{align}  \label{eq:invariants}
+ \k(C) &= \k(E)^{ι_C} \\
+ \k(D) &= \k(E)^{ι_D} \\
+ \k(E') &= \k(E)^τ    \\
+ \k(B) &= \k(E)^{\langleι_C,ι_D\rangle} = \k(E')^ι
+\end{align}
+here $\k$ is the field of definition of $C,D$.
+For the remaining part of the Galois lattice,
+note that $ι_C$ and $ι_D = τ \circ ι_C$ are just the first two consecutive reflections
+in the set of $n$ reflections 
+\[ \{ ι_l := τ^{\circ l} \circ ι_C\,\text{for}\,l=0,1,2,\dots,n-1. \]
+We can naturally consider other quotients
+\[ C_l := E/ι_l \]
+with $C_0 = C$, $C_1 = D$
+and the respective invariant fields
+\begin{equation}
+\k(C_l) = \k(E)^{ι_l}\, l=2,3,\dots,n-1.
+\end{equation}
+Possibly this means that there is a natural action of a cyclic group $\Z/n$
+on the set of Poncelet pairs $(C,D)$, that maps $(C,D)=(C_0,C_1)$ 
+to $(C_1,C_2)=(D,C_2)$.
+Anyway, curves $C_l$ have genus zero, so each $\k(C_l)$ is generated by
+just one uniformizer $x_n$, and for any $n$ we can write down $x_n$ as function
+of $x_{n-1},x_{n-2}$.
+\begin{remark}The moduli space of Poncelet pairs is the modular curve
+$M_1(N)$. 
+\footnote{Sometimes it is also known as $X_1(N)$,
+but do not confuse it with $X$ that I use throughout this section.}
+It naturally has an action of the multiplicative group $(\Z/N)^*$,
+an abelian group of order $φ(Ν)$,
+but not of the cyclic group of order $N$.
+Maybe this means that $(D,C_2)$ as a pair of conics
+is projectively equivalent to $(C,D)$,
+maybe some explicit collinearity of the plane of order $n$ is involved.
+\end{remark}
+
+
+{\bf Enter Dan maps.}
+
+Let $δ: E\to Z$ be one of the maps from $E$ to one of the “the circle centers” $Z$.
+By the very construction of $δ$ we see that $\langleτ\rangle$ is a subgroup of deck transformations
+(i.e. $δ\circ τ = δ$).
+This means that the map $δ: E\to Z$ factors through $ε: E\to E'$,
+that is there exists a unique $δ': E'\to Z$ such that $δ = δ'\circε$.
+
+Moreover, not only $τ$ but each 
+individual involution $ι_C$,$ι_D$ (see their definition below)
+is in the deck transformation group of $δ$, that is $δ ι_C = δ = δ ι_D$.
+
+This implies that map $δ: E\to Ζ$ factors through $π'\circε: E\to B$,
+so there is a map $δ": B\to Z$ between the conics (genus zero curves).
+Most likely it is an isomorphism, but apriori could be a map of higher degree,
+so a coordinate on $Z$ is a rational function of a coordinate on $B$.
+
+
+How to check it numerically:
+transport the invariant measure from $E$ to the circle center $Z$.
+
+
+Also, compute the invariants in \eqref{eq:invariants}.
+
+\section{Rational point}
+
+Barry Mazur torion theorem (1978) says that on elliptic curve over rational
+$n$-torsion points with rational coefficients exist only for
+\[ n=1,2,3,\dots,10,12.\]
+Equivalently, it says that the modular
+curve $X_1(n)$ has non-cuspidal rational points only for these eleven
+values of $n$. This can be equivalently interpreted as a condition
+for existence of rational Poncelet $n$-gons.
+In fact, exactly for the same values of $n$ the modular curve $X_1(n)$
+has genus zero, so rational Poncelet $n$-gons are dense in the moduli
+space for this values: for any pair of conics and any Poncelet $n$-gon
+associated with them exist a close pair of conics and Poncelet $n$-gon
+with every vertex defined over rationals.
+\begin{remark} Poncelet $n$-gons for the pair of concentric circles are
+regular, so generally Poncelet $n$-gons can be thought
+as deformations of regular $n$-gons.
+This makes cases $n=7$ and $n=9$ more interesting, since
+for these two values usual regular $n$-gons cannot even be constructed
+with compass, but on the other hand.
+\end{remark}
+If not only everything is rational, but also rank of the Mordell--Weil group
+of $E$ is more than $0$, then for fixed nice $C$ and $D$ the associated
+rational Poncelet $n$-gons are dense in $E(\R)$.
+
+In these cases it is easier to see constancy of invariants:
+if $f$ is a rational function of coordinates then it taked rational values
+on the rational points.
+
+For quadratic fields this has been generalized by Kenku--Momose (1988)
+and Kamienny (1992) to the list of seventeen value
+\[ n = 1,\dots,16, 18\]
+
+And the case of torsion over cubic fields wad recently settled
+in \arxiv{2007.13929} with twenty one values
+\[ n = 1,\dots,20,21. \]
+Values of $n\leq 20$ occur for infinitely many moduli of elliptic curves,
+while all elliptic curves over cubic fields
+with $21$-torsion have the same $j$-invariant
+(are isomorphic over $\C$).
+
+
+\section{Euclidean plane as a projective plane with a pair of points.}
+Material of this section is well-known,
+and appears in the first courses of geometry at math departments.
+I include it just for the completeness.
+
+Main insight - Euclidean planimetry is equivalent to
+projective planimetry in presense of fixed pair of points $Z$
+on the projective plane $\P^2_\R$. This can be abstracted to other fields.
+Also for the field of reals Euclidean (circlic) geometry 
+can be deformed to its hyperbolic version through parabolic.
+\begin{enumerate}
+\item hyperbolic: two points are real and distinct.
+In this case functions on $Z$ is a pair of real numbers that are added and multiplied independently:
+$Γ(Z) \simeq \R\oplus\R$.
+\item parabolic: two points are infinitely close, so we just have
+a point and a line passing through it point (point and a tangent direction
+on a plane is equivalent to a point and line). In this case functions on $Z$ are dual numbers: $Γ(Z) \simeq \R[ε]/ε^2$.
+\item circlic (Euclidean): two points are non-real, but complex conjugate
+(so the pair is still real).
+In this case functions on $Z$ are complex numbers:
+$Γ(Z) \simeq \C$.
+\end{enumerate}
+
+\subsection{(Co)tangents as a cross-ratio}
+(Co)tangents of the angle between two lines $M$, $N$
+essentiallyt equals to the cross-ratio of $4$ points on
+the infinite line $L_\infty = (*:*:0)$, 
+namely $(1:i:0)$, $(1:-i:0)$, $L\cap M$ and $L\cap N$,
+these are two points of the intersection
+and the base locus of the linear system of Euclidean circles.
+
+\subsection{Hermite's cotangent identity}
+
+\section{How to construct a moduli space of Euclidean triangles}
+
+Issues.
+
+How to treat degenerate cases (e.g. $Hilb^3 \P^2$ vs other approaches).
+
+Relation to $M_{g=0,n=5}$ and to configurations of $5$ points on a plane.
+Cf. Kapranov picture.
+
+Gauss--Argand--B..--Mikhalkin: $z\in\C\backslash\{0,-1\}$,
+or for non-degenerate positively oriented case $z\in\H$.
+$X+Y+Z=0$, $x=\frac{X}{Z}$, $y=\frac{Y}{X} = \frac{-X-Z}{X}=-1-\frac{1}{x}$,
+$z=\frac{Z}{Y} = -1-\frac{1}{y} = \frac{-1}{x+1}$.
+Change of cyclic order: $x\to y\to z\to x$.
+
+If a triangle has angles $α_1,α_2,α_3$ with $α_1+α_2+α_3=π$
+and $x_i := \cos α_i, y_i := \sin α_i, t_i = \tan α_i, c_i = \cot α_i $.
+\begin{gather}
+x_1^2 + x_2^2 + x_3 ^2 = 1 - 2 x_1 x_2 x_3 \\
+t_1 + t_2 + t_3 = t_1 t_2 t_3 \\
+c_2 c_3 + c_1 c_3 + c_1 c_2 = 1
+\end{gather}
+
+
+
+\printbibliography
+
+\begin{thebibliography}{xxx}
+\bibitem{Griffiths-Vienna}
+Add link to the popularizing talks of Griffiths.
+E.g. his colloquium in Vienna, May 2017.
+
+\bibitem{Cayley-1853}
+Arthur Cayley:
+\url{http://olivernash.org/2018/07/08/poring-over-poncelet/assets/pdfs/Cayley-1853.pdf}
+
+\bibitem{Cayley-1861}
+Arthur Cayley:
+\url{http://olivernash.org/2018/07/08/poring-over-poncelet/assets/pdfs/Cayley-1861.pdf}
+
+\bibitem{GH1977}
+Philip Griffiths, Joe Harris:
+\emph{Poncelet in space}, 
+1977 
+
+\bibitem{GH1978}
+Philip Griffiths, Joe Harris:
+\emph{On Cayley proof of Poncelet porism},
+1978 
+
+\bibitem{Hitchin1992}
+Nigel Hitchin:
+\emph{Poncelet polygons and the Painlevé equations},
+\url{https://mathscinet.ams.org/mathscinet-getitem?mr=1351506} 
+\url{http://olivernash.org/2018/07/08/poring-over-poncelet/assets/pdfs/Hitchin-1995.pdf}
+
+\bibitem{IU2007}
+Iwasaki--Uehara
+\emph{An ergodic study of Painlevé VI} 
+\url{https://mathscinet.ams.org/mathscinet-getitem?mr=2302065} 
+\url{https://doi.org/10.1007/s00208-006-0077-8}
+
+\bibitem{Nash2018}
+Oliver Nash:
+\url{http://olivernash.org/2018/07/08/poring-over-poncelet/index.html}
+
+\bibitem{DS2019}
+Dragovic and Vasilisa Shramchenko:
+\url{https://mathscinet.ams.org/mathscinet-getitem?mr=3928374}
+\url{https://doi.org/10.1007/s00023-019-00765-8}
+
+\end{thebibliography}
+
+
+\end{document}

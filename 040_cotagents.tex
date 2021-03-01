@@ -1,0 +1,203 @@
+In this section we prove that the sum of cotangents over the homothetic N-periodic family is invariant.
+We use the following parametrization for the vertices.
+Rotation by angle $\alpha$ is given by
+\[ z\to z' = e^{i \alpha} \cdot z \]
+Since $e^{i \alpha} = \cos \alpha + i \sin \alpha$
+for $z = x + i y$ and $z'=x'+iy'$ we have
+\[
+   x'+iy' = z' 
+ = e^{i \alpha} \cdot z
+ = (\cos \alpha + i \sin \alpha) (x + i y) 
+ = (x \cos \alpha - y \sin \alpha) + i (x \sin \alpha + y \cos \alpha)
+\] 
+or
+\begin{align*} x' &= (x \cos \alpha - y \sin \alpha)    &     y' &= (x \sin \alpha + y \cos \alpha) \end{align*}
+Also if $z = e^{i \beta}$ then $z' = e^{i (\beta+\alpha)}$ and respectively $x'=\cos(\beta+\alpha), y'=\sin(\beta+\alpha)$.
+So we can explicitly write down coordinates for the next and the previous points using $\cos(-\alpha)=\cos(\alpha)$ and $\sin(-\alpha)=-\sin(\alpha)$.
+If $T (x_i,y_i) = (x_{i+1},y_{i+1})$, then
+\begin{align*} 
+x_{i+1} &= (x_i \cos \alpha - y_i \sin \alpha)    &     y_{i+1} &= (x_i \sin \alpha + y_i \cos \alpha)  \\
+x_{i-1} &= (x_i \cos \alpha + y_i \sin \alpha)    &     y_{i-1} &= (-x_i \sin \alpha + y_i \cos \alpha)  
+\end{align*}
+
+And if $X_i = a x_i$ then
+
+\begin{align} 
+X_{i+1} &= a(x_i \cos \alpha - y_i \sin \alpha) & y_{i+1} &= b( x_i \sin \alpha + y_i \cos \alpha) \nonumber \\
+X_i &= a x_i & y_i &= b y_i \label{eq:scaled-dynamics} \\
+X_{i-1} &= a(x_i \cos \alpha + y_i \sin \alpha)   &    y_{i-1} &= b(-x_i \sin \alpha + y_i \cos \alpha) \nonumber
+\end{align}
+
+
+
+\begin{theorem}
+Over Poncelet N-Periodics in the homothetic pair, the sum of cotangents of the internal angles $\theta_k$ is invariant. It is given by:
+\[ \sum_{k=1}^N \cot\theta_k	=-  N \cot
+		\left( {\frac {2\pi}{N}} \right)  \frac {\left( {a}^{2}+{b}^{2} \right) }{2ab}
+\]	
+\label{th:cot}
+\end{theorem}
+
+\begin{proof}
+The cotangent of an angle $\theta=\angle{ABC}$ is rational on the vertex coordinates. Explicitly, if $B=O:=(0,0)$ and $C=H:=(*,0)$, $A=(x,y)$ then
+\[ \cot\theta = \frac{x}{y} \]
+If $C=(x_1,y_1)$ and $A=(x_3,y_3)$ consider the associated complex numbers $x_1 + i y_1$ and $x_3 + i y_3$, respectively. Their ratio $d$ is given by:
+\[ d 
+ = \frac{x_1 + i y_1}{x_3 + i y_3} 
+ = \frac{(x_1 + i y_1)(x_3 - i y_3)}{(x_3 + i y_3)(x_3 - i y_3)} 
+ = \frac{(x_1 x_3 + y_1 y_3) + i (y_1 x_3 - y_3 x_1)}{x_3^2 + y_3^2}
+\]
+Angle $AOC$ is homothetic to angle $HOD$, hence:
+
+\begin{equation} \label{cotangent}
+\cot\theta = \frac{x_1 x_3 + y_1 y_3}{y_1 x_3 - y_3 x_1} 
+\end{equation}
+
+The formula for the cotangent of an abstract triple is obtained by a shift, but it will be easier to do the shift directly.
+
+\begin{equation*} 
+\cot((x_1,y_1),(x_2,y_2),(x_3,y_3)) = 
+\frac{(x_1-x_2) (x_3-x_2) + (y_1-y_2) (y_3-y_2)}{(y_1-y_2) (x_3-x_2) - (y_3-y_2) (x_1-x_2)}
+\end{equation*}
+
+Without loss of generality we will set $b=1$. Rewrite \cref{eq:scaled-dynamics} as: 
+
+\begin{align*}
+X_+ - X &= a (x (\cos \alpha - 1) - y \sin \alpha)& y_+ - y &= ( x \sin \alpha + y (\cos \alpha - 1))  \\
+X_- - X &= a (x (\cos \alpha - 1) + y \sin \alpha) & y_- - y &= (-x \sin \alpha + y (\cos \alpha - 1))  
+\end{align*}
+
+\noindent or in trigonometric form:
+
+\begin{align*}
+X_+ - X &= a (\cos(\beta+\alpha)-\cos(\beta))    &     y_+ - y &= \sin(\beta+\alpha)-\sin(\beta)  \\
+X_- - X &= a (\cos(\beta-\alpha)-\cos(\beta))    &     y_- - y &= \sin(\beta-\alpha)-\sin(\beta)  
+\end{align*}
+
+\noindent substitute the above into 
+\cref{cotangent} and get:
+
+\begin{equation*} \label{cot-a}
+\cot(x,y,a) = \frac{a x_- x_+ + a^{-1} y_- y_+}{y_- x_+ - y_+ x_-}
+\end{equation*}
+so
+\begin{equation*}
+\cot(x,y,a) = \cot(x,y,1) \cdot \frac{a x_- x_+ + a^{-1} y_- y_+}{x_- x_+ + y_- y_+}
+%  \cot(x,y,1) \frac{a (\cos(\beta+\alpha)-\cos(\beta))(\cos(\beta-\alpha)-\cos(\beta)) + a^{-1} (\sin(\beta+\alpha)-\sin(\beta))(\sin(\beta-\alpha)-\sin(\beta))}{...}
+\end{equation*}
+
+\noindent Note that:
+
+\begin{align*}
+x_- x_+ &= (x (\cos \alpha - 1) + y \sin \alpha) (x (\cos \alpha - 1) - y \sin \alpha) \\&= x^2 (\cos \alpha - 1)^2 - y^2 \sin^2 \alpha \\
+y_- y_+ &= \dots                                                   = y^2 (\cos \alpha - 1)^2 - x^2 \sin^2 \alpha \\
+x_- x_+ + y_- y_+                                                 &= (\cos \alpha - 1)^2 - \sin^2 \alpha 
+\end{align*}
+
+\noindent and since $x=\cos{\beta}$, $y=\sin{\beta}$, 
+$x^2 + y^2 = \cos^2{\beta} + \sin^2{\beta} = 1$ (we use a unit circle by convention)
+and $\sin^2 \alpha + \cos^2 \alpha = 1$ we get:
+
+\begin{multline}
+\label{eqn:3}
+\int_\beta \cot(\beta,a)
+= \frac{\int_\beta \cdot ( a (A \cos^2 \beta - B \sin^2 \beta) + a^{-1} (A \sin^2 \beta - B \cos^2 \beta))}{A-B} 
+\\
+= \left(\int_\beta \cos^2 \beta \right) \cdot \frac{a A-a^{-1}B}{A-B}
++ \left(\int_\beta \sin^2 \beta \right) \cdot \frac{a^{-1}A-a B}{A-B}
+\end{multline}
+
+\noindent where $\int_\beta$ is any linear functional on functions of $\beta$ such that $\int_\beta 1 = 1$,
+$A = (\cos \alpha - 1)^2$ and $B = \sin^2 \alpha$ are constant and don't depend on $\beta$.
+Note that $\cot(\beta,1)$ is a constant function:
+it depends on $\alpha$, but not on $\beta$,
+and can be easily computed from geometry:
+\[ \int_\beta \cot(\beta,1) = \cot(\cdot,1) = -\cot(\alpha) \]
+
+Under the assumption
+\begin{equation}
+ \label{fourier-2}
+ \int_\beta  \exp(\pm2i\cdot\beta) = 0
+\end{equation}
+using
+\[\cos(\beta) = \frac{\exp(i\beta) + \exp(-i\beta)}2 \]
+we have
+\[ \cos(\beta)^2 = \frac12 + \frac14\cdot{(\exp(i\cdot2\beta) + \exp(-i\cdot2\beta))} \]
+%Em jeito similar, sin(\beta) = (exp(i\beta) - exp(-ib))/(2i) e sin(\beta)^2 = 1/2 - (exp(i 2\beta) + exp(-i 2\beta))/4. [usando sin^2 = 1 - cos^2 esta linha não é necessária]
+which implies
+\[
+\sin^2 \beta = \int_\beta \cos^2 \beta = \frac12,
+\]
+using the above in \Cref{eqn:3}, obtain:
+\begin{equation*}
+\frac{\int_\beta \cot(\beta,a)}{\int_\beta \cot(\beta,1)}
+= \frac12 \cdot \frac{aA-a^{-1}B}{A-B}
++ \frac12 \cdot \frac{a^{-1}A-a B}{A-B}
+= \frac{a+a^{-1}}2
+\end{equation*}
+
+So \cref{fourier-2} implies that the ``integral'' $\int_\beta \cot(\beta,a)$
+equals $\frac{a+a^{-1}}{2}$ times  $\int_\beta \cot(\beta,1)$, and the latter factor equals $-\cot \alpha$.
+
+To summarize the above:
+
+\begin{equation} \label{space-average}
+\int_\beta  \cot(\beta;a,\alpha)  = - \frac{a+a^{-1}}{2} \cdot \cot(\alpha)
+\end{equation}
+for any linear normalized functional $\int_\beta$ that satisfies \cref{fourier-2}.
+
+If the integral $\int_\beta f(\beta)$ equals to the integral with respect to the normalized Lebesgue measure
+(i.e., the so-called spatial average $\frac1{2\pi} \int_{\beta=0}^{2\pi} f(\beta) d\beta$),
+then \Cref{fourier-2} 
+follows from either $\cos(\beta)=\sin(\beta+\pi/2)$ or Cauchy's residue formula.
+
+On the other hand for fixed $N$ and any $\gamma$ we can consider the discrete integral
+
+\[ \int_\beta f = \sum_{k=0}^{N-1} f(\gamma + \frac{2\pi i k}{N}) \]
+
+For any $\gamma$ and integer $M$
+\[ \sum_{k=0}^{N-1} \exp(i M \cdot (\gamma +\frac{2\pi k}{N}))
+= \exp(i M \gamma) \cdot \sum_{k=0}^{N-1} \exp(2\pi i\frac{k M}{N}). \]
+Number $\sum_{k=0}^{N-1} \exp(2\pi i\frac{k M}{N})$ vanishes unless $M$ is divisible by $N$,
+in which case it equals $N$. 
+This is known as the orthogonality of characters (for cyclic group). Explicitly:
+\[ 
+\sum_{k=0}^{N-1} \exp\big(2\pi i\cdot \frac{kM}{N}\big) 
+= \frac{1-\exp(2\pi i\cdot MN)}{1-\exp(2\pi i\cdot\frac{M}{N})} 
+= \frac0{1-\exp(2\pi i\cdot\frac{M}{N})} = 0 
+\]
+%
+%[ Se N=1 ou N=2 o denominador é 0, e na verdade a soma não é zero ]
+%
+This implies that if $N>2$, the time average of $\cos^2(\beta)$ equals the spatial average.
+Hence for $N>2$ periodic time averages of $\cot\theta$ are equal to their spatial time averages, and are invariant.
+\end{proof}
+
+Note the end of the proof works for any polynomial in $\sin(\beta)$ and $\cos(\beta)$
+of degree less than $N$. Therefore: 
+%Time averages of squares of cotangents are invariant for $N>4$. And sums of squares of distances to any fixed point are invariant for $N>2$.
+
+\begin{corollary}
+Let $M$ be an integer smaller than $N$. Over N-periodics in the homothetic pair the following is also invariant.
+\[\sum_{i=1}^{N}{\cot^M(\theta_i)}\] \end{corollary}
+
+Below we provide an explicit expression for the sum of squared cotangents. Let $c_N=\cos\left(\frac{\pi}{N}\right)$ and $s_N=\sin\left(\frac{\pi}{N}\right)$. Then:
+
+
+\begin{align*}
+\sum_{k=1}^N \cot_k^2 = &\frac {N \left(  \left( {a}^{2}+{b}^{2} \right) ^{2} (c_N^{
+4}-  c_N^{2}) +\frac{3}{8}\,{a}^{4}+\frac{1}{4}
+\,{a}^{2}{b}^{2}+\frac{3}{8}\,{b}^{4} \right) }{4{a}^{2}{b}^{2} s_N^{2}
+ c_N^{2}}\\
+ =& -\frac{((a^2+b^2)^2\cos(4\pi/N)+2 (a^4+ b^4)) N}{    4 (\cos(4\pi/N)-1)  a^2 b^2)}\\
+ =&  \frac{\left( 3\,a^{4}+2\,a^{2}b^{2}+3\,b^{4}\right) (\sum\cot_k)^2}{2N\left( a^{2}+b^{2} \right)^{2}}+ \frac{
+ \left(a^2-b^2 \right)^{2}   N}{8a^{2}b^{2}}
+\end{align*} 
+
+\[ \lim_{N\to\infty}\frac{\sum\cot_k}{N^2}=-\frac{ a^2+b^2}{4\pi ab},\;\;\;\lim_{N\to\infty}\frac{\sum\cot^2_k}{N^3}= \frac{ a^4+2 a^2 b^2 +3 b^4}{ 32\pi^2 a^2b^2   } \]
+%
+%Generalization: replace the rational angle $\frac{2\pi}{N}$ by an arbitrary angle $\alpha$  and the periodic averages 
+%$\frac{1}{N^2}\sum_{k=1}^N\cot_k$,
+%$ \sum_{k=1}^N L_k^2$, $ \sum_{k=1}^N\cot_k^2$ 
+%$\frac{ 1}{N^2}\sum_{k=1}^N L_k^2$, %$\frac{1}{N^3}\sum_{k=1}^N\cot_k^2$ 
+%by the respective time-averages. 
