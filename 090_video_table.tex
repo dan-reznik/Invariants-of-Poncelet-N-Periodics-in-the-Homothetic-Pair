@@ -1,17 +1,55 @@
-Animations illustrating some phenomena herein are listed on Table~\ref{tab:playlist}.
+
+In \cref{tab:invariants-degrees} we summarize the quantities
+that have constant trace with respect to $N$-isogenies.
+On the left hand side we list polynomial quantities (and their degree),
+such that their traces for the respective $N$-isogenies of genus zero curves (circles) are constant.
+On the right hand side we list ``analogous'' quantities for the elliptic billiard,
+such that their traces for the respective $N$-isogenies of genus-1 curves (Poncelet configuration spaces) are constant.
+
+\newcommand{\mcc}[1]{\makecell[cc]{#1}}
+\begin{table} 
+\centering
+\begin{tabular}{|c|c|c||c|c|} \hline
+\mcc{degree} & \mcc{grading} & \mcc{polynomial\\quantity} & \mcc{confocal\\analogue} & \mcc{grading} \\ \hline
+0 &  0  & $1$          & $1$               &   0  \\
+0 &  1  & $a,b,c$      & --                &      \\
+0 &  2  & $A$          & --                &      \\ \hline
+1 &  1  & $d(P,f_\pm)$ & $d(P,f_\pm)^{-1}$ &  -1  \\ \hline
+  & 2/3 & $κ^{-2/3}$   & $κ^{2/3}$         & -2/3 \\ 
+2 &  0  & $\cotθ$      & $\cosθ$           &   0  \\
+  &  2  & $s^2$        & $s$               &   1  \\
+  &  2  & $d(P,P_0)^2$ & --                &      \\ \hline
+4 &  2  & $\AA_s$      & --                &      \\ \hline
+6 &  2  & $\ell^2$     & --                &      \\ \hline
+\end{tabular}
+\caption{Polynomial quantities on $\FF$ (homothetic pair of $N$-gons),
+          their degree, and invariants in the confocal pair (elliptic billiard) which bear symbolic resemblance.
+         The quantities $1,a,b,c,d(P,f_1),κ^{-2/3},d(P,P_0)^2$ are defined in terms of the ellipse $\EE$ alone,
+         others also use the ellipse inscribed in the polygon.
+}
+\label{tab:invariants-degrees}
+\end{table}
+
+Animations illustrating some invariant phenomena herein are listed on Table~\ref{tab:playlist}.
 
 \begin{table}[H]
 \small
-\begin{tabular}{|c|l|l|}
+\begin{tabular}{|c|c|l|l|}
 \hline
-id & Title & \textbf{youtu.be/<.>}\\
+id & N & Title & \textbf{youtu.be/<.>}\\
 \hline
-01 & {Invariants of Poncelet N-Periodics in the Homothetic Pair} &
+01 & 5 & {Invariants of $\FF$} &
 \href{https://youtu.be/2PdsC3CcqaE}{\texttt{2PdsC3CcqaE}}\\
-02 & {Invariant Brocard Angles over 3-Periodics in the Homothetic Pair} & \href{https://youtu.be/2fvGd8wioZY}{\texttt{2fvGd8wioZY}} \\
-03 & {Locus of Brocard Points over Homothetic 3-Periodics} & \href{https://youtu.be/13i3JGY-fK4}{\texttt{13i3JGY-fK4}}\\
+02 & 3 & {Invariant Brocard Angles for triangles of $\FF$} & \href{https://youtu.be/2fvGd8wioZY}{\texttt{2fvGd8wioZY}} \\
+03 & 3 & {Locus of Brocard Points for triangles of $\FF$} & \href{https://youtu.be/13i3JGY-fK4}{\texttt{13i3JGY-fK4}}\\
+04 & 5 & {Invariant signed area of Evolute Polygon, $s=\{.25,.5,.75,.1\}$} & \href{https://youtu.be/JCj0q7_hlA8}{\texttt{JCj0q7\_hlA8}} \\
+05 & 3,5,6,8 & {Evolute Polygons with Zero Signed Area} & \href{https://youtu.be/3nvXYFoI5Wg}{\texttt{3nvXYFoI5Wg}} \\
+06 & 5 & {Invariant-Area Evolute Polygon with $s=1$} & \href{https://youtu.be/ChsfLzKrb4o}{\texttt{ChsfLzKrb4o}} \\
+07 & 3 & {Zero-area Evolute Polygon is a horizontal segment} & \href{https://youtu.be/f80QaYs5_J4}{\texttt{f80QaYs5\_J4}} \\
+08 & 3 & {Two zero-area evolute polygons intersect on $X_{76}$} & \href{https://youtu.be/OFA_j25R8ks}{\texttt{OFA\_j25R8ks}} \\
 \hline
 \end{tabular}
 \caption{Illustrative videos. The last column is clickable and provides the YouTube code.}
 \label{tab:playlist}
 \end{table}
+

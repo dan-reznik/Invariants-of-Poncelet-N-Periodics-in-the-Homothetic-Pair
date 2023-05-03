@@ -1,0 +1,12 @@
+[Numeration]
+
+    New:Old	
+     where 
+  T=Theorem,L=Lemma,P=Proposition,C=Corollary,O=Observation
+
+[3]  P1:P1, L1:P2, T1:P3
+[4]  6:L1, 7:P4, C1, 8:C2,
+[5]  9:C3+T1, 10-11:O1,
+[6]  P5, 14:C4,
+[7]  15:P6, C3:C5, O1:O2, O3, 16:O4, 17:P7,
+

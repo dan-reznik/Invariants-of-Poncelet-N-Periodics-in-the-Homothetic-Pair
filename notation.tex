@@ -1,0 +1,34 @@
+\section{Notação.}
+
+As soluções que temos ainda estão parciais e não sistemáticas.
+
+\textcolor{red}{consertamos suas sugestoes de notacao, ver abaixo}
+\textcolor{blue}{Tente grep - algumas são concertadas, algumas ficam.}
+
+As seguintes notações dentro de artigo são incompatíveis:
+
+\begin{itemize}
+\item
+\textcolor{blue}{s: \emph{qual} de duas $s$ vira $u$?}
+\textcolor{red}{dan: feito, $s$ vira $u$}
+-- $s$ é usado para os sidelengths, mas tambem para o constante quando discutimos evolutas.
+
+\item
+\textcolor{blue}{s: mas isso é incompatível com "elipse com eixos a,b" que está
+escrito no início do artígo}
+\textcolor{red}{ron: feito, mantendo a sugestao de usar $a,b$ quando $T$ é diagonal}
+-- $a,b,c$ são invariantes métricos do elipse $\EE$, os semieixos e a semidistância entre os focos.
+      Mas também tentamos usar-lhes para denotar os coeficientes da matriz da transformação afim.
+      No caso da matriz escalar as duas notações são compatíveis, mas no caso geral não são, e precisamos sete letras diferentes.
+      Para a matriz da transformação afim geral podemos também usar a decomposição $T = R_1 S R_2$,
+      onde $S=\begin{pmatrix}a&0\\0&b\end{pmatrix}$ é a dilatação em direção de semieixos e $R_1,R_2$ são rotações.
+      A ''invariância/constância de Dan'' é independência com respeito de $R_2$. 
+
+\item
+\textcolor{blue}{s: tente "grep P\_0 *.tex", 2-3 ainda ficam}
+\textcolor{red}{dan: feito -- $P_0$ vira $Q$}
+$P_k$ --- usamos este notação para vertices, mas também outra vez $P_0$ significa o ponto qualquer.
+      Então $P_0$ não é uma notação boa porque também usamos indexação dos vertices por resíduos $k \in \Z/N$ (ao menos na subseção sobre areas orientadas),
+      e geralmente seria muito facil confudir $P_0$ com uma das vertices. 
+\end{itemize}
+

@@ -1,0 +1,49 @@
+The cotangent $\cot\theta$ is quadratic,
+hence for $N>2$ its trace $T_N (\cot\theta)$ is a constant, it equals to
+\begin{equation}
+\label{:cot}
+T_N \cot\theta = - \cot\left(α\right) \cdot \frac{\left( {a}^{2}+{b}^{2} \right) }{2ab}
+\end{equation}
+\begin{proof}
+A cotangent is a ratio $\cot = \frac{Scalar}{Area}$ of a scalar product by an area.
+Since an area is constant, a cotangent is quadratic iff a scalar product is quadratic.
+The latter was established in the previous section. The projection formula relates the two traces. 
+\end{proof}
+
+%%% XXX: apague depois de demonstração
+Um texto para mostrar para os alunos.
+\[ 2 + 2 = 4 \] % é quatro
+
+\begin{corollary}
+For $N>2M\geq0$
+the traces $T_N (\cot^M(θ))$ of the powers of the cotangent are constants equal to the respective integrals.
+\end{corollary}
+\begin{proof}
+Since the cotangent $\cot θ(\varphi)$ is a quadratic function
+and its powers $\cot^M θ(\varphi)$ are polynomials of degree at most $2M$.
+\Cref{:Laurent} implies that
+the trace $T_N (\cot^M(θ))$ is constant for $N > 2M \geq 0$.
+\end{proof}
+
+% \begin{equation}
+%  4\left(1-\cos\left(\frac{2\pi}{n}\right) \right)A_n Cot_n+ n\cos\left(\frac{2\pi}{n}\right) L_n = 0
+% \end{equation}
+
+The following explicit expressions for the sum of squared cotangents for $N>4$ can be derived.
+\newcommand{\cN}{\cos\left(\frac{α}{2}\right)}
+\newcommand{\sN}{\sin\left(\frac{α}{2}\right)}
+\begin{equation}
+\begin{aligned}
+T_N \cot^2θ 
+ = & -\frac{(a^2+b^2)^2\cos(2α)+2 (a^4+ b^4)}{ 4 (\cos(2α)-1) a^2 b^2 } \\
+% = &\frac { -\left( {a}^{2}+{b}^{2} \right) ^{2} \sin^2(α) + \frac32\,{a}^{4}+{a}^{2}{b}^{2}+\frac32\,{b}^{4} }{4 {a}^{2}{b}^{2} \sin^2(α)}\\
+ = &  \frac{3\,a^{4}+2\,a^{2}b^{2}+3\,b^{4}}{2\left( a^{2}+b^{2} \right)^{2}}
+      \cdot \left(T_N\cotθ\right)^2
+    + \frac{ \left(a^2-b^2 \right)^{2} }{8a^{2}b^{2}}
+\end{aligned}
+\end{equation} 
+
+\begin{equation}
+\lim_{α\to 0} α T_N   \cotθ    = -\frac{a^2+b^2}{2 ab},\;\;\;
+\lim_{α\to 0} α^2 T_N \cot^2θ  =  \frac{3 a^4+2 a^2 b^2 +3 b^4}{ 8 a^2b^2  } 
+\end{equation}

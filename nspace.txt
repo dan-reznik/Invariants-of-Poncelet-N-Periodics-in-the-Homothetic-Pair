@@ -1,0 +1,64 @@
+Seja f = Σ c(n) zˆn um polinômio de Laurent,
+Sup f := { n | c(n) ≠ 0 } o suporte dele,
+|Sup f| - a cardinalidade de suporte.
+
+Por fixo conjunto A no Z o conjunto L(A)
+de todos os polinômios de Laurent g tais que Sup(g) é um subconjunto de A
+é um espaço vetorial de dimensão |A|.
+
+Por qualquer w≠0 os polinômios f(wz) e f(z) tem o mesmo suporte,
+então todos os polinômios f(wz) por todas w≠0
+são os vetores no mesmo espaço vetorial de dimensão |Sup f|.
+Isso implica que por qualquer M polinômios deste conjunto
+existe ao menos (M-|Sup f|)-dimensional espaço de relações lineares entre eles,
+e a dimensão do espaço vetorial gerado por eles é ao máximo |Sup f|.
+
+Também podemos considerar a dimensão do espaço afim gerado por estes polinômios.
+Note que por qualquer w≠0 o termo constante da diferença f(wz)-f(z) é igual ao zero,
+então |Sup(f(wz)-f(z)| ≤ | Sup(f) \ {0} |.
+Logo a dimensão do espaço afim gerado por f(w z) é ao máximo | Sup(f) \ {0} |.
+
+Por exemplo, se |Sup(f)\{0}| ≤ 2, a imagem pode ser um ponto, uma reta ou uma curva plana
+(ou uma curva plana menos um ponto,
+se suporte não tem o zero no interior,
+mas isso não é nosso caso).
+
+No último caso se |Sup(f)\{0}| = {A,B}  e A>0>B,
+notaremos   d:=mdc(A,B), a := A/d, b := -B/d,
+a imagem é isomorfa à curva afim plana { x^a y^b = 1 } sobre um corpo gerado por w.
+E.g. se A=-B a imagem é isomorfa à hipérbole como uma curva plana afim complexa.
+
+Sobre o corpo das reais a hipérbole (como uma curva afina) tem duas formas -
+da hipérbole ou da elipse.
+E claro que a imagem é compacta na topologia arquimediana/euclideana,
+então é a elipse como curva afim real.
+
+Se g(z) = C + B f(z) temos g(wz) = C + B f(wz)
+então a mapa z -> (g(w_i z)) é a imagem da mapa z -> (f(w_i z))
+com respeito de composição com a homotetia  V -> C + B V.
+
+Se 
+> f = z+1/z;
+> fw = subst(f,z,w*z);
+logo
+> lindep([1,f^2,f*fw,fw^2])
+ = [-w^4 + 2*w^2 - 1, -w^2, w^3 + w, -w^2]~
+
+i.e. a equação é
+
+Xˆ2 + Yˆ2 - (w+1/w) XY = - (w-1/w)ˆ2
+
+ou usando a parametrização pelo ângulo α:
+     w+1/w = 2 cos α,    w-1/w = 2I sin α
+
+Xˆ2 + Yˆ2 - (2 cos α) XY = 4 sinˆ2 α
+
+Claro também que por N≠4 podemos usar o argumento de Dan para produzir uma quádrica.
+
+E também que se consideramos uma forma euclideana no espaço N-dimensional com respeito de qual os vetores de base padrão são ortonormais, ela é igual a essa quádrica.
+(E então com respeito desta métrica a curva é um círculo.)
+
+Mas não sei se existe alguma outra definição/sentido natural desta forma bilinear.
+Normalmente as formas de destaque são obtidas como
+as únicas formas invariantes com respeito de algum grupo de transformações naturais.
+

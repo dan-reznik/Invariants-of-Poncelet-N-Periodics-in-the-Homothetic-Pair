@@ -1,44 +1,66 @@
-\documentclass{amsart}
-
-%\documentclass[a4paper,11pt]{amsart}
-
+\documentclass{scrartcl}
 \input{000_setup}
-
-\title[Invariants of Poncelet N-Periodics in the Homothetic Pair]{Invariants of Poncelet N-Periodics\\in the Homothetic Pair}
-\author{Sergey Galkin}
-\author{Ronaldo Garcia}
-\author{Dan Reznik}
-
-\date{February, 2021}
-
+\date{\today}
+\author{Sergey Galkin, Ronaldo Garcia, Dan Reznik}
 \begin{document}
-
+\title{On Affine Images of Regular Polygons}
 \maketitle
+
+
 
 \input{005_abstract}
 
+\tableofcontents
+
 \section{Introduction}
 \label{sec:intro}
-\input{010_introduction}
+\input{010_intro}
 
-\section{Trigonometric Polynomials}
-\label{sec:trig-polys}
-\input{020_trig_polys}
+\section{Polygonomials}
+\label{sec:polygonomials}
+\input{polygonomials}
 
-\section{Invariant Sum of Squared Sidelengths}
-\input{030_sqr_sidelengths}
+\section{Poncelet configurations}
+\label{sec:poncelet}
+\input{poncelet}
 
-\section{Invariant Sum of Cotangents}
-\label{sec:cotangent}
-\input{040_cotagents}
+\section{Trigonometry}
+\label{sec:trigo}
+\input{020_trigo}
 
-\section{Invariant Sum of Distances to Focus}
-\label{sec:dist-focus}
-\input{050_dist_focus}
+\section{Traces and Averages}
+\label{sec:traces}
+\input{030_traces}
+
+\section{Examples}
+\label{sec:examples}
+
+\subsection{Oriented Areas}
+\label{sec:areas}
+\input{040_areas}
+
+\subsection{Scalar Products}
+\label{sec:scalar}
+\input{050_scalar}
+
+\subsection{Cotangents}
+\label{sec:cot}
+\input{060_cot}
+
+\subsection{Distances to a Focus, and the Curvature}
+\label{sec:focuspocus}
+\input{070_focuspocus}
+
+\subsection{Evolute Polygon}
+\label{sec:evolute}
+\input{080_evolute}
+
+\section{Affine Image of a Regular Polygon}
+ \input{affine_image}
 
 %\input{080_summary}
 
-\section{Video Table}
+\section{Summary and Videos}
 \label{sec:video-table}
 \input{090_video_table}
 
@@ -47,19 +69,14 @@
 
 \appendix
 
-%\section{Homothetic N-Periodic Vertices}
-%\input{110_app_explicit}
-%\label{app:explicit}
-
-%\section{Classic Invariants for Any Concentric Poncelet}
-%\input{120_app_concentric_poncelet}
-%\label{app:concentric-poncelet}
-
 \section{Table of Symbols}
-\input{100_app_symbols}
+\input{210_app_symbols}
 \label{app:symbols}
 
 \bibliographystyle{maa}
 \bibliography{references,authors_rgk} 
+
+\clearpage
 \input{ender.tex}
+
 \end{document}

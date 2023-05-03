@@ -1,0 +1,78 @@
+The oriented area (of a parallelogram)
+is defined by a bilinear skew-symmetric function,
+i.e. $A: (u,v) \mapsto A(u,v)$ associates to a pair of vectors $u,v$
+a number, so that 
+\begin{equation}
+\label{eq:area}
+A(u,v)=-A(v,u),
+\quad
+A(λ\cdot u + v,w) = λ\cdot A(u,w) + A(v,w),
+\end{equation}
+for all vectors $u,v,w$
+and numbers $λ$ (in particular, negative).
+\footnote{In characteristic $2$ one also requires a bit stronger $A(u,u)=0$.}
+All skew-symmetric bilinear functions on a two-dimensional vector space
+form a one-dimensional vector space, and the constant is conveniently fixed by
+\begin{equation*}
+u \wedge v = A(u,v) \cdot (1,0) \wedge (0,1) = A(u,v) \cdot 1\wedge i
+\end{equation*}
+so $A(u,v)$ is the determinant of the unique affine transformation
+that maps $(1,0)=1$ to $u$ and $(0,1)=i$ to $v$.
+
+As in \Cref{sec:polygonomials} by an \emph{oriented polygon} on an affine plane
+we mean a cyclically ordered collection of points on an affine plane,
+so an oriented $N$-gon is a map $P: \Z/N \to \A^2$.
+The oriented area of an oriented triangle is the half of the oriented area of the respective oriented parallelogram,
+and by virtue of a triangulation of an oriented $N$-gon, its oriented area can be defined
+using any reference point $O\in\A^2$ as
+\begin{equation*}
+A(P) := \frac12 \sum_{i\in\Z/N} A(P(i)-O,P(i+1)-O),
+\end{equation*}
+the end result is independent of $O$.
+Equivalently, one defines an \emph{oriented polygon up to translation}
+by a collection of vectors $e : \Z/N \to V$ in an oriented two-dimensional vector space $V$
+subject to condition \eqref{eq:zerosum}
+\begin{equation*}
+\sum_{i\in\Z/N} e(i) = 0,
+\end{equation*}
+then
+\begin{equation*}
+A(e) := \frac12 \sum_{k\leq i < j < N+k} A(e(i),e(j)),
+\end{equation*}
+the end result is independent of $k\in\Z$ thanks to zero-sum condition.
+
+\begin{remark}
+A convex polygon on an oriented real plane has a distinguished pair of mutually inverse cyclic orderings
+of its vertices, and thus orientations: clock-wise (or negative) and anti-clock-wise (or positive).
+More generally, if we consider the counter-clock-wise cyclic ordering as a cyclic permutation $σ$,
+then for any $k$ coprime to the gonality $N$,
+the $k$-th power $σ^k$ is also a cyclic permutation
+which corresponds to the structure of the oriented polygon of $k$-th diagonals on the same set of vertices,
+which is not convex unless $k = \pm 1 \mod N$.
+A pair $(N,k)$ is conveniently encoded either by a reduced fraction (rational number) $τ = \frac{k}{N} \in \Q/\Z$,
+and in the context of regular $N$-gons by the respective angle $α = 2π τ =  2π \frac{k}{N} \in \R/\Z$
+or a primitive $N$-th root of unity $ζ = \exp(iα) = \exp(2πi τ) =  \exp(2πi \frac{k}{N}) \in \C$.
+\end{remark}
+
+The definition of the oriented area makes explicit that for any oriented polygon $P$
+and affine transformation $T$ the oriented area of the image $TP$ equals to $\det T$
+times the oriented area of $P$:
+\begin{equation*}
+A(TP) = \det(T) \cdot  A(P)
+\end{equation*}
+
+For example, this implies that the oriented area $A_N$ of the affine image of a regular polygon is given by
+\begin{equation}
+\frac{A_N}{N} = \det S \cdot \frac{\sin(α)}2 = \sin(α) \cdot \frac{ab}{2}
+\end{equation}
+
+and the oriented area of the image of the triangle $P(i-1) P(i) P(i+1)$ equals $\frac{\det S}2$ times
+\begin{equation}
+A(P(i+1)-P(i),P(i)-P(i-1))  =  \sin(2α) - 2 \cdot \sin(α)
+\end{equation}
+
+{\color{blue} Generalize to constancy of areas for all "natural figures".}
+
+{\color{red} Degree of polynomials and cancellations thanks to skew-symmetricity.}
+
+

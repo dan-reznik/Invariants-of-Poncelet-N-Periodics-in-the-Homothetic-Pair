@@ -1,0 +1,215 @@
+
+Let $ζ$ (resp. $z$) be a complex number associated with a rotation $ρ$ (resp. an initial point $P$),
+and $f$ be a function on a circle.
+The $L$-step time average with respect to the rotation $ρ$
+is a linear operator $T_{L,ζ}$ on the functions of $z$ defined by
+\begin{equation} \label{eq:time-average} 
+T_{ζ,L} : f \mapsto \frac{1}{L} \sum_{k=0}^{L-1} ρ^{\circ k} f = \frac{1}{L} \sum_{k=0}^{L-1} f(ζ^k \cdot z).
+\end{equation}
+% if $ζ^N = 1$ we will simply write $\int_{N,z}$.
+If $ζ$ is a primitive $N$-th root of unity (in this case define $\ord(ζ)$ to be $N$, otherwise $\infty$)
+and $L$ is divisible by $N$
+we call the respective sum \emph{the $N$-periodic time average} $T_N[f,z]$,
+for generic $L$ note that $\lim_{L\to\infty} T_{ζ,L} f = T_N[f,z]$.
+In this case $T_N[f,z] = T_N[f,ζ^k\cdot z]$ for any $k\in\Z$,
+so there exists a unique function $T_N f$ (alternatively named $T_ζ f$) of the variable $z_N$,
+the \emph{trace}
+\footnote{Recall that usually for a map $F: X \to Y$ the trace is an operator that sends $f/X$ to $\tr_F f /Y$ and is defined by
+$(\tr_F f) (y) = \sum_{F(x)=y} f(x)$ when it makes sense.
+Unlike average, the trace is defined without division by the degree ($N$),
+and the average (trace divided by the degree) can be thought as a normalized trace.
+For the convenience in this paper we use such normalization,
+and further do not distinguish between the trace and the average when both are defined.}
+ of $f$ with respect to the map $z\mapsto z^N$,
+such that 
+\begin{equation} \label{eq:trace}
+(T_N f) (z_N \mapsto z^N) = T_N[f,z].
+\end{equation}
+For example, consideration of \cref{eq:cotangent}
+show that the trace of the cotangent $T_N (\cot(\varphi))=T_N(\xi)$ equals 
+$\xi(z_N)$ for $N$ even, and $\xi(z_N^2)$ for $N$ odd.
+\footnote{Use either explicit rational function of $z$ or Euler's infinite sum.}
+%where $ψ = N \varphi$ is the angle co-ordinate on the image. 
+The traces $T_N$ (also known as transfers, direct images or push-forwards)
+are linear operators on the spaces of functions (differential forms, measures, etc),
+and they preserve any of the following properties:
+$L^p$ integrability, continuity, smoothness, algebraicity, rationality, Laurent polynomiality.
+For $N=0$ the map $z\mapsto z^0$ is constant with the image being a point $z=1$,
+so $T_0 f$ makes sense either as a function on a point
+or as a generalized function (distribution)
+on a circle equal to $\widehat{f}(0)$ times delta-function of the point $z=1$.
+When $N$ grows big $T_N f$ approaches $T_\infty f$,
+a constant function on $S^1$ equal to $\widehat{f}(0)$.
+The trace is functorial: $T_{N_1 \cdot N_2} = T_{N_1} \circ T_{N_2}$
+for any pair $N_1,N_2 \in \Z \bigcup \infty$ when $N_1\cdot N_2$ makes sense
+(anything but $(0,\infty)$ or $(\infty,0)$).
+The functoriality implies
+\begin{proposition} \label{:functoriality}
+Assume $T_N f$ is constant for some $N$.
+Then $T_{N'} f$ is also constant for all $N'$ divisible by $N$,
+and the constant equals to the space-average $\widehat{f}(0) = \int_{S^1} f(z) dμ_L$.
+\end{proposition}
+We will be interested in proving the constancy of $T_N f_N$
+for functions $f_N$ that implicitly \emph{depend on $N$},
+so instead of the direct application of the proposition
+we will have to make this dependence explicit (cf. \cref{:strange})
+and decompose $f_N$ into a linear combination
+of simpler functions independent of $N$ \cref{:characterization}.
+
+Explicitly, the (non necessarily periodic) time average of
+a Laurent monomial $f(z) = c(M) \cdot z^M$ ($M\in\Z$) equals
+\begin{equation}
+\label{eq:average-monomial}
+ \frac{1}{L} \sum_{k=k_0}^{k_0+L-1} c(M) (ζ^k \cdot z)^M
+= c(M) z^M \cdot \left( \frac{1}{L} ζ^{M k_0} \sum_{k=0}^{L-1} (ζ^M)^k  \right).
+\end{equation}
+If $ζ^M=1$ (i.e. if $M$ is divisible by $\ord(ζ)$),
+then the second factor equals $1$ and the average equals $c(M) z^M$,
+otherwise
+\begin{equation} \label{eq:geometric-progression}
+\frac{1}{L} \sum_{k=k_0}^{k_0+L-1} c(M) z^M (ζ^M)^k
+= \frac{1}{L} \frac{ζ^{M k_0}-ζ^{M(k_0+L)}}{1-ζ^M} c(M) z^M
+\end{equation}
+by geometric progression formula.
+\footnote{The only explicitly computable sum according to Abel.}
+In particular, % $N$-periodic time average of 
+the trace $T_N c(M) z^M$ is non-zero
+if and only if $c(M)\neq 0$ and $M$ is divisible
+\footnote{Note that fixed $M$ has but a finite number of integer divisors,
+so all $T_N$ of a Laurent polynomial vanish for $N$ higher than the degree,
+see \cref{:Laurent}.} 
+by $N$,
+in fact this is equivalent to the existence of the trace $T_N f$ that satisfies \Cref{eq:trace}.
+Let us rephrase it once again:
+\begin{equation} \label{:fourier-of-trace}
+T_N f = \sum_{m\in\Z} \widehat{f}(N m) z_N^m, \\
+\end{equation}
+where $z_N$ is the co-ordinate on the image-circle,
+related to the co-ordinate on the source-circle by $z_N = z^N$.
+
+In particular,
+\begin{lemma} \label{:Laurent}
+If $f$ is a trigonometric polynomial of degree $d$,
+then for any $N>d$ all the traces $T_N f$ are constant and equal
+to the space average $\widehat{f}(0)$.
+\end{lemma}
+
+In the next sections we will routinely apply \Cref{:Laurent} to verify
+the constancy of the traces for some functions $f_N$
+defined in terms of the Euclidean geometry
+of the images of the respective regular $N$-gons
+with respect to a fixed affine transformation.
+\cref{tab:invariants-degrees} shows the functions considered and their trigonometric polynomial degrees.
+For some cases the application is straightforward,
+others require a careful look or a computation to recognize a trigonometric polynomial.
+
+The above discussion leads the following characterization
+of all functions $f$ with constant trace $T_N f$:
+\begin{theorem} \label{:characterization}
+The trace $T_N f$ is constant (equal to $C$) if and only if the function $f$
+can be written as a sum
+\[ f = C\cdot 1 + \sum_{i=1}^{|N|-1} g_i \cdot f_i \]
+where each $g_i$ is invariant
+and every $f_i$ is traceless.
+Moreover, for any choice of traceless and linearly independent $f_1,\dots,f_{N-1}$,
+there are unique invariant coefficients $g_i$, and specific traceless trigonometric polynomials $f_i$ can be chosen with degree at most $\frac{|N|}2$.
+\end{theorem}
+\begin{proof}
+For any map $p: X\to Y$ and any function $f: Y\to Z$
+the pullback (i.e., the inverse image) of $f: Y\to Z$ is defined by
+$p^* f := f \circ p$.
+The pullback and the trace $p_* := T_p$ are related by the projection formula
+\begin{equation}
+p_* (p^* f \cdot g) = f \cdot p_* g.
+\end{equation}
+By dividing by $|N|=\deg p$ we have normalized the trace
+so that $p_* 1_X = 1_Y$,
+where $1_X$ and $1_Y$ are constant functions on $X$ and $Y$ equal to $1$.
+So if $g_i = p^* h_i$ then
+$p_* (C\cdot 1 + \sum  f_i g_i) = C p_*(1_X) + \sum h_i \cdot p_* f_i = C 1_Y + \sum h_i \cdot 0 = C$.
+Also $p_* p^* p_* f = p_* f \cdot p_* 1 = p_* f$, so any $f$ equals to the
+sum $f = p^* p_* f + (f-p^* p_* f)$ of a pullback $p^* p_* f$
+with the same trace and traceless $(f-p^* p_* f)$.
+If the finite (in our case, cyclic) group $G$ acts on $X$ so
+that the map $p: X\to X/G = Y$ is the quotient with respect to $G$,
+then $p^* p_* f = \frac{1}{|G|} \sum_{ρ\in G} ρ^* f$ is $G$-invariant
+(i.e. $ρ^* f = f$ for all $ρ\in G$);
+conversely if $ρ^* f = f$ for all $ρ$ then
+$f = \frac{1}{|G|} \sum_{ρ\in G} ρ^* f = p^* p_* f$,
+so pullbacks coincide with $G$-invariant functions.
+By the projection formula, the functions on $X$ are a module
+over the algebra of functions on $Y$,
+and for finite $p$ it is a free module of rank $\deg p (=\deg G = |N|)$.
+E.g. in our trigonometric case and odd $|N|=2n+1$, Laurent polynomials (or Fourier series) in $z$
+are a free module of rank $|N|$ over Laurent polynomials (or Fourier series) in $z_N=z^N$
+with a basis $z^n,\dots,z^{-1},1,z,\dots,z^n$
+where basic element $1$ is invariant and all other basic elements are traceless;
+any $f = \sum a(n) z^n$ equals
+$f = \sum_{i=-l}^l g_i\cdot z^i$
+where
+$g_i = \sum_{m\in\Z} a(i + m\cdot N) (z^{N})^m$
+are $G$-invariant and are equal to the pullbacks of
+$ h_i = \sum_{m\in\Z} a(i + m\cdot N) z_N^m $
+with respect to $p : z \mapsto z^N = z_N$.
+Trace $p_* f$ equals to $h_0$.
+\end{proof}
+
+\begin{remark} \label{:strange}
+In all situations of this paper the quantity $f(z)$ can be written
+as a function $f_ζ(z)$ with a parameter $ζ$,
+or, equivalently as a function $f(z;ζ)$ of two variables
+in such a way, that the $N$-th trace $T_N f$
+is computed for specific values of $ζ$, namely for $ζ^N=1$,
+the argument of $ζ$ corresponding to the angle $α$ of the rotation $ρ$ in the natural parameter
+on the circle $S^1$.
+Note that under these circumstances \cref{:characterization}
+\emph{does not oblige} the function $f(z,ζ)$ to be polynomial in $z$,
+e.g. a variation of the so-called ''strange'' function of Kontsevich--Zagier
+\[ f(z,ζ) = \sum_n z^n \cdot a(n) \cdot \prod_{k=1}^n (1-ζ^k)  \]
+is a Laurent polynomial in $z$ of degree at most $N$ if $ζ$ is specified to any $N$-th root of unity.
+Note that such strange behaviour does not happen for \emph{rational}
+functions $f\in\C(z,ζ)$ thanks to the polynomial interpolation.
+\end{remark}
+
+\begin{remark} \label{:ergodic}
+Even if $|ζ|=1$, but not necessarily a root of unity, one can still make sense of $T_ζ$
+as a time average
+\begin{equation}
+T_ζ f = \lim_{L\to\infty} \frac{1}{L} \sum_{k=k_0}^{k_0+L-1} f(ζ^i \cdot z)
+\end{equation}
+If $ζ$ is primitive $Ν$-th root of unity then $T_ζ$ coincides with $T_N$,
+otherwise the constancy of $T_ζ f$ and its equality to $\widehat{f}(0)$
+for \emph{any reasonable} $f$ is known as Ergodic Theorems.
+E.g. for $f\in L^2$ it is proved by noticing
+that right hand side of \cref{eq:average-monomial} thanks to \cref{eq:geometric-progression}
+is bounded by $\frac{2 |c(M)| |1-ζ^M|^{-1}}{L}$ hence goes to $0$ as $L\to\infty$.
+\end{remark}
+
+\begin{remark}
+The cyclic subgroup $ζ^\Z$ in the multiplicative group $\C^*$ of complex numbers
+generated by integer powers $ζ^n$ of a non-zero complex number $ζ\in\C^*$
+falls into the following trichotomy:
+\begin{enumerate}
+\item finite if $ζ$ is root of unity,
+\item dense in $S^1$ if $|ζ|=1$, but $ζ$ is not a root of unity,
+\item infinite discrete if $|ζ|\neq0$.
+\end{enumerate}
+The quotient $E_ζ := \C^*/ζ^\Z$ makes sense for $ζ^\Z$ discrete.
+If $ζ$ is a primitive $N$-th root of unity,
+then the quotient $E_ζ$ is $\C^*$ with co-ordinate $z^N$.
+If $|ζ|\neq 1$ then the quotient $E_ζ$
+is a smooth compact Riemann surface of genus one (elliptic curve).
+In this case the generator $ζ\in\C^*$ with $|ζ|<1$ is usually denoted by $q$
+and further expressed as $q = \exp(2πi\cdot τ)$ with $\Im{τ} > 0$, the logarithm $τ =\frac{\log q}{2πi}$
+defined up to integer translations $τ\mapsto τ\pm1$, so the curve $E_ζ$ can also be denoted as $E_q$
+or $E_τ = \C/(\Z+\Zτ)$ ($\Z^2$ acts on $\C$ by $\varphi \mapsto \varphi + n + mτ$)
+up to trivial $E_{τ+1} \simeq E_τ$ and hidden $E_{-1/τ} \simeq E_τ$ isomorphisms.
+From this point of view the first case corresponds to rational values of $τ$, known as \emph{cusps}.
+The time averages we considered above do not make too much sense for $|ζ| \neq 1$:
+they either exponentially diverge or tend to zero as in the ergodic case,
+so one has to regularize them in order to get a meaningful function (or, rather, Jacobi form) on the
+(family of) elliptic curves $E_τ$.
+\end{remark}
+
+{\color{blue} Add remark on the rays and spirals ($|ζ|<1$ and $|ζ|>1$).}
+

@@ -1,0 +1,76 @@
+% 
+
+Let $\FF$ be a family of affine images of a regular polygon
+whose circumcircle is sent to an ellipse with fixed semi-axes of length $a,b$.
+
+Let us say that a \emph{trace} of a ''quantity'' is the arithmetic mean of its values on the vertices of the polygon in $\FF$.
+A priori the trace depends on the chosen polygon and/or on the particular transformation $T\in\FF$.
+We will explicitly compute the traces of the ''interesting'' quantities below.
+In particular, we prove that these are constant over $\FF$
+and compute their limits for infinite gonality (denoted further by $N$):
+
+\begin{itemize} \itemsep0em
+    \item \eqref{:norm2}: the squared distance to any fixed point; see \cref{fig:homot_norm}.
+    \item \eqref{:sqr_si}: the squared sidelength.
+    \item \eqref{:cot}: the cotangent of an internal angle.
+    \item \eqref{:dist-focus}: the distance to a focus of $\EE$.
+    \item \eqref{:kappa}: \textcolor{magenta}{the kinetic energy} $\kappa^{-2/3}$, where $\kappa$ is the curvature of the ellipse $\EE$.
+    \item \eqref{:ell2}: the squared sidelength of the evolute polygon (except squares and hexagons). 
+    \item \eqref{:as}: the signed area of the evolute polygon (except squares).
+\footnote{We explain later in which sense area can be thought as a function.}
+\end{itemize}
+
+As a part of the computation
+we verify that each of the traced quantities is a Laurent polynomial
+when expressed in terms of the natural coordinate on the circle.
+Then the application of \cref{:Laurent}
+implies that its trace is constant for all gonality higher than the degree of the polynomial,
+and the remaining traces are explicitly computed in terms of coefficients by \cref{:fourier-of-trace}. The degree for each Laurent polynomial appears on \cref{tab:invariants-degrees}.
+
+\subsection*{Article organization}
+We start from \cref{sec:polygonomials}
+by defining the polygons and (functions on) their moduli spaces,
+and explaining our selection criteria
+for the ''quantity'' to be ''interesting''.
+After this section it will be clear why the kinetic energy
+is considered to be an interesting quantity,
+but coordinates and momenta (whose traces are also constant) are not:
+the former is invariant with respect to the Euclidean transformation group,
+while the latter are covariant (equivariant).
+
+In \cref{sec:trigo}
+we give trigonometric preliminaries,
+then introduce the traces
+in \cref{sec:traces},
+and characterize functions with constant trace
+by \cref{:fourier-of-trace,:functoriality,:Laurent,:characterization,:strange,:ergodic},
+from which all the remaining claims follow by straightforward computations,
+which are described in \cref{sec:examples}.
+In \eqref{sec:areas} we discuss oriented areas,
+many natural oriented areas are constant even before the tracing,
+and also we explain how they split into local summands.
+In \eqref{sec:scalar} we discuss functions that are quadratic polynomials for obvious reasons --- scalar products of linear transformations.
+In \eqref{sec:cot} we discuss cotangents that also turn out to be quadratic.
+In \eqref{sec:focuspocus} we show that distance to the focus is linear
+and $κ^{-2/3}$ is quadratic: a priori we knew only that their square and cube are polynomials,
+but these polynomials turned out to be
+a perfect square (of a coordinate)
+and a perfect cube (of the kinetic energy).
+In \eqref{sec:evolute} we compute the quantities
+associated with evolute polygons (of degrees four and six)
+using an explicit parametrization
+for the evolute\footnote{The curve sweeped by centers of curvature (centers of the oscullating circles).},
+of the ellipse, a curve affinely equivalent to the \href{https://en.wikipedia.org/wiki/Astroid}{astroid}
+\footnote{Plane algebraic curve $x^{2/3}+y^{2/3}=1$,
+see e.g. \url{https://en.wikipedia.org/wiki/Astroid},
+\url{https://mathshistory.st-andrews.ac.uk/Curves/Astroid},
+\url{http://xahlee.info/SpecialPlaneCurves_dir/Astroid_dir/astroid.html}}.
+
+In \cref{sec:video-table} we (i) 
+list the polynomial quantities sorted by their degrees
+and hypothesize on what could be their ``analogues'' in the elliptic billiard
+and (ii) provide a list of illustrative videos of the phenomena herein.
+For convenience, all used symbols appear in \cref{app:symbols}.
+
+
+

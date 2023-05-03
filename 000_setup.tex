@@ -1,28 +1,30 @@
 \usepackage{graphics}
+\usepackage{amsthm}
 \usepackage{thmtools}
-\usepackage{wasysym}
+%\usepackage{wasysym}
 %\usepackage{arxiv}
 %\usepackage{enseign}
 
 \usepackage{iftex}                      % check which engine is compiling this file
 \iftutex                                % xelatex or lualatex specific first
- % \usepackage{fontspec}                % font selection in xelatex/lualatex
+ \usepackage{fontspec}                  % font selection in xelatex/lualatex
  \defaultfontfeatures {Ligatures=TeX}
- \usepackage{unicode-math}              % amssymb,amsmath eq, to show $θ$ as θ
+ \usepackage{unicode-math}              % amssymb+amsmath equiv., to show $θ$ as θ
  \unimathsetup{math-style=TeX}
  \setmathfont{Stix Two Math}
  \ifLuaTeX
-  %  \usepackage{luatex85}              % compatibility of luatex with xy
+  % \usepackage{luatex85}               % compatibility of luatex with xy
    \usepackage{lualatex-math}
  \fi
 \else                                   % 8bit (e.g. pdflatex) specific
-\usepackage[T1]{fontenc}                % use 8-bit T1 fonts
-%\usepackage[utf8]{inputenc}       % allow utf-8 input, for texlive-2016 and older
+ \usepackage[T1]{fontenc}               % use 8-bit T1 fonts
+ % \usepackage[utf8]{inputenc}           % allow utf-8 input, for texlive-2016 and older
+ \usepackage{amsmath,amssymb}
 \fi
-\usepackage{alphabeta}              % in LuaLaTeX use {unicode-math}
+\usepackage{alphabeta}                  % type αβγ directly, in LuaLaTeX use {unicode-math} (above)
 
-\usepackage{amsthm}
-\usepackage{amsbsy,amsmath,amssymb,amscd,amsfonts}
+
+\usepackage{amsbsy,amscd,amsfonts}
 \usepackage[pagebackref=true]{hyperref}
 \usepackage[nameinlink,capitalize,noabbrev]{cleveref}
 %\usepackage{hyperref}
@@ -52,16 +54,20 @@
 
 \newtheorem{theorem}{Theorem}
 \newtheorem*{theorem*}{Theorem}
-\newtheorem{observation}{Observation}
-\newtheorem{proposition}{Proposition}
-\newtheorem{conjecture}{Conjecture}
-\newtheorem{corollary}{Corollary}
 \newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
+\newtheorem{observation}{Observation}
+\newtheorem{example}{Example}
+
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 \newtheorem{question}{Question}
+\newtheorem{conjecture}{Conjecture}
+
 \hypersetup{
     %bookmarks=true,         % show bookmarks bar?
     %unicode=true,          % non-Latin characters in Acrobat’s bookmarks
@@ -69,11 +75,11 @@
     pdfmenubar=true,        % show Acrobat’s menu?
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitH},    % fits the width of 
-    colorlinks=true,       % false: boxed links; true: colored links
-    linkcolor=OliveGreen,          % color of internal links (change box color with linkbordercolor)
-    citecolor=blue,        % color of links to bibliography
-    filecolor=black,      % color of file links
-    urlcolor=red           % color of external links
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=OliveGreen,   % color of internal links (change box color with linkbordercolor)
+    citecolor=blue,         % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=TealBlue       % color of external links
 }
 
 \usepackage{lineno}
@@ -84,7 +90,6 @@
 \arraycolsep=2pt
 \captionsetup{width=120mm}
 
- \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
  
 \usepackage{comment}
 \usepackage{microtype}
@@ -92,21 +97,47 @@
 %\usepackage{tablefootnote}
 %\usepackage{longtable}
 
-%\usepackage{night}
+\usepackage[mark]{gitinfo2}
 
-\newcommand{\E}{\mathcal{E}}
-\newcommand{\T}{\mathcal{T}}
-%\newcommand{\C}{\mathcal{C}}
-\defcommand{\C}{\mathcal{C}}
-\newcommand{\F}{\mathcal{F}}
-\renewcommand{\P}{\mathcal{P}}
-\newcommand{\D}{\mathbb{D}}
-\renewcommand{\T}{\mathbb{T}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Cp}{\mathbb{C}}
+% my local settings for night reading
+% \usepackage{sergey}
+
+%% math blackboard
+% \newcommand{\D}{\mathbb{D}}           % unused
+
+%% math bold face
+\defcommand{\k}{\mathbf{k}}             % base field
+\defcommand{\A}{\mathbf{A}}             % [A]ffine plane/space
+% \defcommand{\F}{\mathbf{F}}             % [F]inite [f]ield       (unused)
+\defcommand{\C}{\mathbf{C}}             % [C]omplex numbers
+% \defcommand{\P}{\mathbf{P}}		% projective plane/space   (unused)
+\newcommand{\Q}{\mathbf{Q}}             % Rational numbers
+\newcommand{\R}{\mathbf{R}}             % [R]eal numbers
+\newcommand{\Z}{\mathbf{Z}}             % Integer [Z]ahlen
+
+%% math calligraphic
+\defcommand{\AA}{\mathcal{A}}           % For \AA_s in evolute
+\newcommand{\EE}{\mathcal{E}}		% [E]llipse
+\newcommand{\FF}{\mathcal{F}(a,b)}           % [F]amily
+\newcommand{\PP}{\mathcal{P}}           % [P]olytope
+\newcommand{\QQ}{\mathcal{Q}}           % Regular polytope (maybe better R?)
+% \newcommand{\TT}{\mathcal{T}}		% unused
+% \newcommand{\XX}{\mathcal{X}}         % unused
+
 \newcommand{\ol}{\overline}
-\renewcommand{\l}{\lambda}
-\newcommand{\X}{\mathcal{X}}
 
 \newcommand{\torp}[2]{\texorpdfstring{#1}{#2}}
-\newcommand{\ab}{_{\alpha,\beta}}
+% \newcommand{\ab}{_{\alpha,\beta}}     % unused
+
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\GL}{GL}           % [G]eneral [L]inear group
+\DeclareMathOperator{\SO}{SO}           % [S]pecial [O]rthogonal group
+\DeclareMathOperator{\SL}{SL}           % [S]pecial [L]inear group
+% \DeclareMathOperator{\O}{O}             %           [O]rthogonal group
+\DeclareMathOperator{\Un}{U}             %           [U]nitary group
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\newcommand{\complain}[1]{\textcolor{red}{#1}}

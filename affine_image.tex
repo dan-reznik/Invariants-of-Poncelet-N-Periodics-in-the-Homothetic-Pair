@@ -1,0 +1,56 @@
+
+
+%\section{Affine image of a regular polygon}
+
+Consider the regular $N$-gon with vertices given by 
+\[ Q_k=(\cos\frac{2k\pi}{N},\sin\frac{2k\pi}{N})= (\cos k\alpha,\sin k\alpha)\]
+and the affine map $T$
+%$T(x,y)=(ax+py,qx+by)$
+defined by the matrix 
+$\begin{pmatrix}a&p\\q&b\end{pmatrix}$.  % [a,p;q,b]
+
+Let $v_1=(a,q)$,  $v_2=(p,b)$.  Write 
+ $v_1\wedge v_2=ab-pq=\Delta$ and $\langle v_1,v_2\rangle =aq+bp=\Rho$.
+
+
+
+Then,  the  polygon $\PP$ with vertices
+$P_k=TQ_k$ has the following properties:
+
+
+
+\begin{align*}
+  \frac1{N} A(\PP) &= \sin\alpha \Delta  \\
+  \frac1{N} \sum |P_k|^2   &= \frac{1}{2}(|v_1|^2+ |v_2|^2 )\\
+    \frac1{N} \sum |P_{k+1}-P_k|^2   &=(1-\cos\alpha)(|v_1|^2+|v_2|^2)\\
+  \frac1{N}  cot_N  = \frac1{N}  \sum \cot_k &= -\frac{1}{2}\cot\alpha \frac{|v_1|^2+ |v_2|^2}{\Delta}\\
+   &=-\cos\alpha \frac{\sum |P_k|^2}{A(\QQ)}
+\end{align*}
+   
+ Also,
+ 
+ \begin{align*}
+  \frac{1}{N} \sum\cot_k^2& = \frac{ \left(   |v_1|^2+|v_2|^2 \right)^{2}
+\cos \left( 2\,\alpha \right) +2\,  |v_1|^4
++4\, \Rho^{2}+2\, |v_2|^4
+   }{8\, \Delta^{2}   \sin^2\alpha} \\
+   &=\frac{ 2\left(   |v_1|^2+|v_2|^2 \right)^{2}
+\cos^2  \alpha  + \,  |v_1|^4
++2(\Rho^2-\Delta^2) +\, |v_2|^4
+   }{8\, \Delta^{2}   \sin^2\alpha
+ }\end{align*}
+
+Consider the evolute polygon $\PP_u$. Then it follows that
+
+\begin{align*}
+    \frac{1}{N}\AA_s &= \frac{1}{16\Delta} \left(A_1\sin\alpha +A_3\sin 3\alpha\right)\\
+    A_1  &= (4\Delta^2 + 3|v_1|^4 + 3|v_2|^2 (2|v_1|^2 +|v_2|^2))u^2 \\
+    &- (16\Rho^2 + 12|v_1|^4 + 4|v_2|^2(2|v_1|^2 + 3|v_2|^2))u + 16\Delta^2\\
+    A_3 &= (|v_1|^4+2(\Rho^2-\Delta^2)+|v_2|^4)u^2
+\end{align*}
+\begin{align*}
+   \frac{1}{N} \sum \ell_i^2&=\frac{|v_1|^2+|v_2|^2}{16\Delta^2}[B_3\cos 3\alpha+ B_1\cos\alpha+B_0]\\
+    B_3 &=  (|v_1|^4+2(\Rho^2-\Delta^2)+|v_2|^4)u^2\\
+    B_1 &=  (9|v_1|^4+2(9\Rho^2-\Delta^2)+9|v_2|^4)u^2+16(1-2 u)\Delta^2 \\
+    B_0 &= -(10|v_1|^2-4\Delta^2+20\Rho^2+10|v_2|^4)u^2+16(2 u-1)\Delta^2
+\end{align*}

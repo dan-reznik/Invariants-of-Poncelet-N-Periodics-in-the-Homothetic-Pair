@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{minted}
+\begin{document}
+\begin{minted}{haskell}
+xy2z(q,V=[x,y]) = substvec(q, V, P = [(z+1/z)/2,(z-1/z)/2/I]~);
+Next(q) = subst(q,z,z*w);
+Prev(q) = subst(q,z,z/w);
+S = [a,0;0,b];
+Scale(Q,T=S,V=[x,y]~) = substvec(Q,V,T*V);
+area(V,V2=Next(V)) = matdet(Mat([V,V2]))/2;
+scalar(V,V2=V) = V2~ * V;
+Cot(V,V2=Next(V)) = scalar(V, V2) / (2*area(V,V2)) ;
+Circle = x*(x-2*c)+y*(y-2*d)+e;
+Q = subst(numerator(xy2z(Scale(Circle))),z,z+t);
+M = matrix(3,3,i,j,polcoef(polcoef(Q,i-1,t),1,[c,d,e][j]));
+B = -vectorv(3,i,substvec(polcoef(Q,i-1,t),[c,d,e],[0,0,0]));
+[C,D,E] = matsolve(M,B);
+R2 = C^2 + D^2 - E;
+QQ = substvec(Q,[c,d,e],[C,D,E]);
+zFourthPoint = z - polcoef(QQ,3,t)/polcoef(QQ,4,t);
+FourthPoint = subst(P,z,zFourthPoint);
+As = area(Ps = (1-s)*S*P + s*[C,D]~);
+\end{minted}
+\end{document}

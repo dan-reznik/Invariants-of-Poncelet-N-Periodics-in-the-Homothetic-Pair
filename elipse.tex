@@ -1,0 +1,43 @@
+\section{Invariantes euclideanos das elipses}
+
+Outra confusão de notações é o uso de letra $\alpha$:
+a usamos para notar o ângulo da rotação $ρ$,
+mas parece ser uma notação padrão para a \emph{excentricidade angular} da elipse \url{https://en.wikipedia.org/wiki/Angular_eccentricity},
+i.e.
+\begin{equation*}
+α = \arccos(\frac{b}{a}) = \arcsin(\frac{c}{a})
+\end{equation*}
+Esta quantidade (as vezes também notada como $o\!\varepsilon \,\!:$)
+não é tão inutil como as outras excentricidades (primeira $e$, segunda $e'$, terceira $e''$)
+\begin{equation*}
+e := \frac{c}{a},\quad e' := \frac{c}{b},\quad e'' := \sqrt{m} := \sqrt{\frac{a^2-b^2}{a^2+b^2}}
+\end{equation*}
+ou achatamentos
+\url{https://pt.wikipedia.org/wiki/Achatamento}.
+\begin{equation*}
+f := \frac{a-b}{a},\quad f' := \frac{a-b}{b},\quad n:= f'' := \frac{a-b}{a+b}
+\end{equation*}
+Acho que uma quantidade mais útil é
+\begin{equation*}
+  t = \cot{α/2} = \frac{a-b}{c} = \frac{c}{a+b} = \sqrt{n},
+\end{equation*}
+porque a cónica
+\begin{equation*} 
+c^2 = a^2 - b^2
+\end{equation*}
+tem a parametrização
+\begin{align*}
+     (a:b:c) &= (1+t^2 : 1-t^2 : 2t) \\
+(e,e',e'')   &= (\frac{2t}{1+t^2}, \frac{2t}{1-t^2}, \frac{2t}{\sqrt{1+t^4}}) \\
+(f,f',n=f'') &= (\frac{2t^2}{1+t^2}, \frac{2t^2}{1-t^2}, t^2) \\
+\end{align*}
+
+\bigskip
+\textcolor{red}{Dan: o uso nao produz incoerencia interna, sugiro nao mexer.}
+\smallskip
+\textcolor{blue}{Sergey: claro que não há problema para nós ou para os leitores
+que não são muito interessados nas elipses,
+mas para as leitores que são interessados nas invariantes euclideanas das elipses
+e já acostumadas com algumas notações pode ser uma obstrução.}
+
+

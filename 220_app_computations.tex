@@ -1,5 +1,6 @@
-In this section we prove that the sum of cotangents over the homothetic N-periodic family is invariant.
-We use the following parametrization for the vertices.
+\subsection{Theorem 1}
+
+Below we compute constant $T_N(\cot\theta)$. We use the following parametrization for the vertices.
 Rotation by angle $\alpha$ is given by
 \[ z\to z' = e^{i \alpha} \cdot z \]
 Since $e^{i \alpha} = \cos \alpha + i \sin \alpha$
@@ -28,18 +29,8 @@ X_i &= a x_i & y_i &= b y_i \label{eq:scaled-dynamics} \\
 X_{i-1} &= a(x_i \cos \alpha + y_i \sin \alpha)   &    y_{i-1} &= b(-x_i \sin \alpha + y_i \cos \alpha) \nonumber
 \end{align}
 
-
-
-\begin{theorem}
-Over Poncelet N-Periodics in the homothetic pair, the sum of cotangents of the internal angles $\theta_k$ is invariant. It is given by:
-\[ \sum_{k=1}^N \cot\theta_k	=-  N \cot
-		\left( {\frac {2\pi}{N}} \right)  \frac {\left( {a}^{2}+{b}^{2} \right) }{2ab}
-\]	
-\label{th:cot}
-\end{theorem}
-
-\begin{proof}
-The cotangent of an angle $\theta=\angle{ABC}$ is rational on the vertex coordinates. Explicitly, if $B=O:=(0,0)$ and $C=H:=(*,0)$, $A=(x,y)$ then
+The cotangent of an angle $\theta=\angle{ABC}$ is rational on the vertex coordinates.
+Explicitly, if $B=O:=(0,0)$ and $C=H:=(*,0)$, $A=(x,y)$ then
 \[ \cot\theta = \frac{x}{y} \]
 If $C=(x_1,y_1)$ and $A=(x_3,y_3)$ consider the associated complex numbers $x_1 + i y_1$ and $x_3 + i y_3$, respectively. Their ratio $d$ is given by:
 \[ d 
@@ -53,7 +44,8 @@ Angle $AOC$ is homothetic to angle $HOD$, hence:
 \cot\theta = \frac{x_1 x_3 + y_1 y_3}{y_1 x_3 - y_3 x_1} 
 \end{equation}
 
-The formula for the cotangent of an abstract triple is obtained by a shift, but it will be easier to do the shift directly.
+The formula for the cotangent of an abstract triple is obtained by a shift,
+but it will be easier to do the shift directly.
 
 \begin{equation*} 
 \cot((x_1,y_1),(x_2,y_2),(x_3,y_3)) = 
@@ -171,33 +163,3 @@ This is known as the orthogonality of characters (for cyclic group). Explicitly:
 %
 This implies that if $N>2$, the time average of $\cos^2(\beta)$ equals the spatial average.
 Hence for $N>2$ periodic time averages of $\cot\theta$ are equal to their spatial time averages, and are invariant.
-\end{proof}
-
-Note the end of the proof works for any polynomial in $\sin(\beta)$ and $\cos(\beta)$
-of degree less than $N$. Therefore: 
-%Time averages of squares of cotangents are invariant for $N>4$. And sums of squares of distances to any fixed point are invariant for $N>2$.
-
-\begin{corollary}
-Let $M$ be an integer smaller than $N$. Over N-periodics in the homothetic pair the following is also invariant.
-\[\sum_{i=1}^{N}{\cot^M(\theta_i)}\] \end{corollary}
-
-Below we provide an explicit expression for the sum of squared cotangents. Let $c_N=\cos\left(\frac{\pi}{N}\right)$ and $s_N=\sin\left(\frac{\pi}{N}\right)$. Then:
-
-
-\begin{align*}
-\sum_{k=1}^N \cot_k^2 = &\frac {N \left(  \left( {a}^{2}+{b}^{2} \right) ^{2} (c_N^{
-4}-  c_N^{2}) +\frac{3}{8}\,{a}^{4}+\frac{1}{4}
-\,{a}^{2}{b}^{2}+\frac{3}{8}\,{b}^{4} \right) }{4{a}^{2}{b}^{2} s_N^{2}
- c_N^{2}}\\
- =& -\frac{((a^2+b^2)^2\cos(4\pi/N)+2 (a^4+ b^4)) N}{    4 (\cos(4\pi/N)-1)  a^2 b^2)}\\
- =&  \frac{\left( 3\,a^{4}+2\,a^{2}b^{2}+3\,b^{4}\right) (\sum\cot_k)^2}{2N\left( a^{2}+b^{2} \right)^{2}}+ \frac{
- \left(a^2-b^2 \right)^{2}   N}{8a^{2}b^{2}}
-\end{align*} 
-
-\[ \lim_{N\to\infty}\frac{\sum\cot_k}{N^2}=-\frac{ a^2+b^2}{4\pi ab},\;\;\;\lim_{N\to\infty}\frac{\sum\cot^2_k}{N^3}= \frac{ a^4+2 a^2 b^2 +3 b^4}{ 32\pi^2 a^2b^2   } \]
-%
-%Generalization: replace the rational angle $\frac{2\pi}{N}$ by an arbitrary angle $\alpha$  and the periodic averages 
-%$\frac{1}{N^2}\sum_{k=1}^N\cot_k$,
-%$ \sum_{k=1}^N L_k^2$, $ \sum_{k=1}^N\cot_k^2$ 
-%$\frac{ 1}{N^2}\sum_{k=1}^N L_k^2$, %$\frac{1}{N^3}\sum_{k=1}^N\cot_k^2$ 
-%by the respective time-averages. 

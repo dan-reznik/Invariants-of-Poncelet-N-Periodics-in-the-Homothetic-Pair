@@ -1,0 +1,66 @@
+\section{A fazer.}
+
+Em matemática
+as demonstrações são posteriores às declarações,
+e as declarações são posteriores às definições.
+O círculo virtuoso é:
+ definições, declarações, demonstrações, definições, ...
+
+Um problema principal com este trabalho é que as demonstrações
+são triviais, mas é muito mais difícil
+declarar o que está acontecendo
+e fazer as definições naturais.
+
+Algumas coisas a fazer:
+\begin{enumerate}
+\item Escreva a seção sobre o modelo de Poncelet, ou não use a terminologia indefinida.
+\item Define as coisas.
+ \begin{itemize}
+ \item ''Dan-invariant'' = invariant with respect to the right rotation (one made before the scaling).
+ \item ''Dan simple geometric'' = invariant with respect to the left rotation (one made after the scaling).
+ \end{itemize}
+In other words,
+ on the group of affine transformations 
+\begin{equation} \label{eq:affine-group}
+0 \to \k^2 \to Aff(2) \to \GL(2,\k) \to 1
+\end{equation}
+we have two copies of the group of (oriented) Euclidean transformations
+\begin{equation} \label{eq:euclidean-group}
+0 \to \k^2 \to Euc(2) \to \SO(2,\k) \to 1
+\end{equation}
+acting, one from the left, another from the right, by
+\begin{equation}
+(L,R) : T \mapsto L T R^{-1}
+\end{equation}
+ A quantity is ''Dan simple geometric invariant''
+  if it is invariant with respect to both of these actions.
+\item Também precisamos os nomes mais razoáveis para estes termos,
+mas compatíveis com a nomenclatura matemática dominante.
+\item Explain that the vectors of coordinate and momentum are invariant with respect the the right rotation,
+but \emph{covariant}/\emph{equivariant} with respect to the left rotation.
+\item Explain how to cook up invariants from covariants using invariant forms (such as the area and the scalar product).
+\end{enumerate}
+
+\section{Area orientada como uma função.}
+
+\eqref{:as}: the signed area of the evolute polygon (except squares).
+\textcolor{red}{sergey: area is not associated with vertices, do you want to say area elements / determinants?}
+{Mudei a ordem dos itens exatamente pela razão que a area na primeira vista parece não ser uma função. Mas isso é só na primeira vista.
+
+Há dois jeitos como podemos fazer sentido da area como uma função de $P$:
+
+\begin{itemize}
+\item mais specifico: dizer que a area orientada de polígono é soma das areas orientadas dos triangulos.
+Expliquei este depois quando expandiu a subseção sobre areas.
+Então podemos considerar a area do triangulo $POρ(P)$ como uma função.
+
+\item mais geral: por qualquer $F: X\to Y$ temos $F_* F^* F_* = F_*(1)\cdot F_*$,
+então podemos pensar sobre area do polígono como uma função $F^* F_* f$ onde $f$ é a area do triângulo.
+Isso é, se já sabemos que $ρ^{\circ N} = Id$,
+por qualquer ponto $P$ podemos considerar o $N$-gono orientado com vertices $ρ^{\circ k} P$,
+e a area dele é uma função de $P$.
+\end{itemize}
+
+Ainda não escrevi nenhum destes dois explanações, mas precisamos explicar em um ou outro jeito o fato que
+a area é uma função.
+}
